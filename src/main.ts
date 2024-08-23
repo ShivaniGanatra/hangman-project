@@ -54,11 +54,20 @@ const underscoreLetters = (word: string) => {
     console.log(splitWordToUnderscore);
     return splitWordToUnderscore.join();
 };
-
-const chnageLetterElseUnderscore = (word: string, letter: string) => {
-    const wordToArrayOfLetters: string[] = word.split(""); //array
-    for (let index = 0; index < letters.length; index++) {}
+ 
+const chnageLowerCaseLettersToUnderscore = (word: string) => {
+  const splitToLetters = word.split("")
+  const lowerCaseToUnderscoredArray = splitToLetters.map((letter) => {
+    if(letter === letter.toLowerCase()) {
+      return "_"
+    } else {
+      return letter
+    }
+  })
+  return lowerCaseToUnderscoredArray.join(",")
 };
+
+console.log(chnageLowerCaseLettersToUnderscore("shivANI"))
 
 let wordy = "";
 
@@ -105,12 +114,12 @@ letters.forEach((keyboardLetter)=> {
     if(someThingIsclickedCorrectly === false && wordToChnageVariable.includes(keyboardLetter.value)){
       someThingIsclickedCorrectly = true
       wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
-      display.innerHTML = wordToChnageVariable
+      display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable)
     } 
 
     else if (someThingIsclickedCorrectly === true && wordToChnageVariable.includes(keyboardLetter.value)) {
       wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
-      display.innerHTML = wordToChnageVariable
+      display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable)
     }
 
     
