@@ -55,45 +55,36 @@ const underscoreLetters = (word: string) => {
     return splitWordToUnderscore.join();
 };
 
-const chnageLetterElseUnderscore = (word: string,letter: string) => {
+const chnageLetterElseUnderscore = (word: string, letter: string) => {
+    const wordToArrayOfLetters: string[] = word.split(""); //array
+    for (let index = 0; index < letters.length; index++) {}
+};
 
-  
-  const wordToArrayOfLetters:string[] = word.split(""); //array
-  for (let index = 0; index < letters.length; index++) {
+let wordy = "";
 
+const changeLetterUpperCase = (word: string, letter: string) => {
+    let newWord = word.split("").map((char) => {
+        if (char === letter) {
+            return char.toUpperCase();
+        } else return char;
+    });
+    return newWord.join("");
+};
 
+wordy = changeLetterUpperCase("shivand is amazing and shes the best", "h");
+console.log(wordy);
+wordy = changeLetterUpperCase(wordy, "i");
+console.log(wordy);
 
-
-};}
-
-let wordy = ""
-
-const changeLetterUpperCase = (word:string, letter:string) => {
-  let newWord = word.split("").map((char) => {
-    if (char === letter) {
-      return char.toUpperCase()
-    } 
-    else return char
-  })
-  return newWord.join("")
-}
-
-wordy = changeLetterUpperCase("shivand is amazing and shes the best","h")
-console.log(wordy)
-wordy = changeLetterUpperCase(wordy,"i")
-console.log(wordy) 
-
-//cant pass through underscore once its chnaged 
+//cant pass through underscore once its chnaged
 //can pass though chnaged characters
 //will tackle problem in two stages
 
 //will have a word display
-//if letter is in word then chnage the repective letter to a capital 
+//if letter is in word then chnage the repective letter to a capital
 
-//make a seperate function to display to the inner HTML 
-//this function will turn lowercase letters to "_" undersores
-
-
+//make a seperate function to display to the inner HTML
+//this function will turn lowercase letters to "_"
 
 let wordToChnageVariable = "";
 
@@ -103,36 +94,37 @@ startButton.addEventListener("click", () => {
 });
 
 let someThingIsclickedCorrectly: boolean = false;
-let underscoredVariable = "";
-
-letters.forEach((keyboardLetter) => {
-    keyboardLetter.addEventListener("click", () => {
-        console.log(keyboardLetter.value + " " + wordToChnageVariable);
-
-        //i want to keep chnaging the variable
-        //initially something wont be clicked so wordToReplace will be wordToChnageVariable
-
-        if (
-            wordToChnageVariable.includes(keyboardLetter.value) &&
-            someThingIsclickedCorrectly === false
-        ) {
-            someThingIsclickedCorrectly = true;
-            console.log(someThingIsclickedCorrectly);
-
-            console.log(
-                wordToChnageVariable + " includes " + keyboardLetter.value
-                
-            );
-
-            console.log(underscoredVariable); //_____ee_
-        }
-    });
-});
 
 
 
 
 
+letters.forEach((keyboardLetter)=> {
+  keyboardLetter.addEventListener("click", () => {
+
+    if(someThingIsclickedCorrectly === false && wordToChnageVariable.includes(keyboardLetter.value)){
+      someThingIsclickedCorrectly = true
+      wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
+      display.innerHTML = wordToChnageVariable
+    } 
+
+    else if (someThingIsclickedCorrectly === true && wordToChnageVariable.includes(keyboardLetter.value)) {
+      wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
+      display.innerHTML = wordToChnageVariable
+    }
+
+    
+
+
+
+
+
+
+
+
+
+  })
+})
 
 //if the wordtoChange includes the letter it should let me know
 //nothing in display should chnage here
