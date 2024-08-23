@@ -43,10 +43,15 @@ const getAWordFromTaylorArray = () => {
     return letter = "_"
   })
   console.log(splitWordToUnderscore)
+  return splitWordToUnderscore.join()
 }
 
 getAWordFromTaylorArray()
 
 letters.forEach((letter) => {
   console.log(letter.value)
+})
+
+startButton.addEventListener("click", () => {
+  display.innerHTML = getAWordFromTaylorArray()
 })
