@@ -33,25 +33,61 @@ console.log(taylorArray.length)
 
 
 
-const getAWordFromTaylorArray = () => {
-  let randomNumberBetween0and12 = Math.floor(Math.random() * 13)
-  const taylorWord = taylorArray[randomNumberBetween0and12]
-  console.log(taylorWord + " index is " + randomNumberBetween0and12)
-  const splitTaylorWord = taylorWord.split("")
-  console.log(splitTaylorWord)
-  const splitWordToUnderscore = splitTaylorWord.map((letter) => {
+const getAWordFromArray = (array: string[]):string => {
+  let randomNumberBetween0andLastIndex = Math.floor(Math.random() * (array.length))
+  const word = array[randomNumberBetween0andLastIndex]
+  console.log(word + " index is " + randomNumberBetween0andLastIndex)
+  return word
+
+}
+
+const underscoreLetters = (word: string) => {
+  const splitWord = word.split("")
+  console.log(splitWord)
+  const splitWordToUnderscore = splitWord.map((letter) => {
     return letter = "_"
   })
   console.log(splitWordToUnderscore)
   return splitWordToUnderscore.join()
 }
 
-getAWordFromTaylorArray()
-
-letters.forEach((letter) => {
-  console.log(letter.value)
-})
+let wordToChnageVariable = ""
 
 startButton.addEventListener("click", () => {
-  display.innerHTML = getAWordFromTaylorArray()
+  wordToChnageVariable = getAWordFromArray(taylorArray)
+  display.innerHTML = underscoreLetters(wordToChnageVariable)
 })
+
+letters.forEach((letter) => {
+  letter.addEventListener("click", () => {
+
+
+    console.log(letter.value + " " + wordToChnageVariable)
+    //if the wordtoChange includes the letter it should let me know
+    //nothing in display should chnage here
+    if(wordToChnageVariable.includes(letter.value)) {
+      console.log(wordToChnageVariable + " includes " + letter.value)
+      //turn wordToChnageVariable into an array of letters
+      //map over it
+      //if the arrayOfLetters is equal to letter.value leave it as a letter
+      //else turn it into an undersore
+
+      const wordToLettersArray = wordToChnageVariable.split("")
+      console.log(wordToLettersArray)
+      const allButLetterValueUnderscore = wordToLettersArray.map((individualLetter) => {
+        if(individualLetter === letter.value) {
+          return individualLetter
+        } 
+        return "_"
+      })
+      console.log(allButLetterValueUnderscore)
+
+
+    }
+  })
+})
+
+let myString = "Hello World";
+let index = myString.indexOf("o");
+
+console.log(index);
