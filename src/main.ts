@@ -28,8 +28,9 @@ const taylorArray: string[] = [
     "archer",
     "fearless",
     "enchanted",
-];
-console.log(taylorArray.length);
+]
+
+refreshButton.addEventListener("click" , () => location.reload())
 
 //have an arrayof words
 //use math.radom to get a random number bewteen 0 and 12
@@ -46,8 +47,9 @@ const getAWordFromArray = (array: string[]): string => {
 };
 
 
-
-
+//this function will chnage all lowercase letters to underscore
+//the remaining apparent letters are uppercased
+//these were the uppercase letters are the letters that te user has selected
  
 const chnageLowerCaseLettersToUnderscore = (word: string) => {
   const splitToLetters = word.split("")
@@ -81,11 +83,6 @@ const changeLetterUpperCase = (word: string, letter: string) => {
     });
     return newWord.join("");
 };
-
-wordy = changeLetterUpperCase("shivand is amazing and shes the best", "h");
-console.log(wordy);
-wordy = changeLetterUpperCase(wordy, "i");
-console.log(wordy);
 
 //cant pass through underscore once its chnaged
 //can pass though chnaged characters

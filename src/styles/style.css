@@ -34,9 +34,19 @@
 
 .display {
   font-size: 30px;
-  padding: 10px;
-  height: 30px;
   background-color: rgb(223, 247, 255);
+}
+
+.display-house {
+  background-color: rgb(223, 247, 255);
+  width: 300px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: rgb(255, 197, 239) 5px solid;
+  box-shadow: 5px 5px 5px rgb(180, 139, 247);
+  border-radius: 5px;
 }
 
 .main-buttons {
@@ -47,14 +57,15 @@
   padding: 30px;
 }
 .main-buttons__button {
-  background-color: rgb(128, 191, 253);
+  background-color: rgb(255, 230, 192);
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  border: 2px solid rgb(219, 145, 238);
+  border: 5px solid rgb(219, 145, 238);
   color: black;
   transition: ease 0.3s;
+  margin: 10px;
 }
 .main-buttons__button:hover {
-  background-color: rgb(180, 139, 247);
+  background-color: rgb(255, 197, 239);
 }/*# sourceMappingURL=style.css.map */
