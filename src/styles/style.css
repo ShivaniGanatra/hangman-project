@@ -45,5 +45,9 @@
   height: 50px;
   border-radius: 10px;
   border: 2px solid rgb(219, 145, 238);
-  color: rgb(252, 255, 232);
+  color: black;
+  transition: ease 0.3s;
+}
+.main-buttons__button:hover {
+  background-color: rgb(180, 139, 247);
 }/*# sourceMappingURL=style.css.map */

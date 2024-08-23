@@ -13,7 +13,12 @@
         height: 50px;
         border-radius: 10px;
         border:2px solid $quartenary-color;
-        color: $primary-color;
+        color: black;
+        transition: ease 0.3s;
+    }
+
+    &__button:hover {
+        background-color: $senary-color;
     }
 }
 
