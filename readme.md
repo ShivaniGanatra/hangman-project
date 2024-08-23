@@ -9,3 +9,20 @@ I am planning on building it by having buttons that once clicked will appear in 
 There will be a refresh button, buttons for the letters empty divs which will open if the specified letter is there 
 
 I also want to have confetti if someone succeds the hangman game 
+
+//Hangman- TS
+Store all words in array
+When start is clicked epmty div should be filled with the amount of words in the letter
+
+
+letters should have event listener 
+
+if letter is included in the empty word it should enter
+if not then you will loose a life 
+makege git a heart image and then do display none 
+
+
+need to know sort out what wil happen if letter is included 
+
+and if letter isnt included
+
