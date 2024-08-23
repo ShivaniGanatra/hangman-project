@@ -1,0 +1,19 @@
+.letters-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.letters-section__letter {
+  width: 50px;
+  height: 50px;
+  background-color: aquamarine;
+}
+
+.background-image {
+  width: 100%;
+  height: 400px;
+  background-repeat: repeat;
+  background-size: contain;
+  background-image: url("https://i.pinimg.com/originals/89/f5/38/89f5387e9b4a3761ad9df388f0a1011c.png");
+}/*# sourceMappingURL=style.css.map */
