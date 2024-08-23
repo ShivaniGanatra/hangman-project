@@ -45,15 +45,9 @@ const getAWordFromArray = (array: string[]): string => {
     return word;
 };
 
-const underscoreLetters = (word: string) => {
-    const splitWord = word.split("");
-    console.log(splitWord);
-    const splitWordToUnderscore = splitWord.map((letter) => {
-        return (letter = "_");
-    });
-    console.log(splitWordToUnderscore);
-    return splitWordToUnderscore.join();
-};
+
+
+
  
 const chnageLowerCaseLettersToUnderscore = (word: string) => {
   const splitToLetters = word.split("")
@@ -70,6 +64,14 @@ const chnageLowerCaseLettersToUnderscore = (word: string) => {
 console.log(chnageLowerCaseLettersToUnderscore("shivANI"))
 
 let wordy = "";
+
+
+//This is a function that if a letter is included it will turn to uppercase
+//it takes two arguemnts the word and the letter
+//it returns a word with captitalised letters based on the respective letter
+///this allows you to constantly update the variable 
+//This is because .toUpperCase and .toLowerCase can be repeteadly passed through
+//and chnaged enough
 
 const changeLetterUpperCase = (word: string, letter: string) => {
     let newWord = word.split("").map((char) => {
@@ -99,28 +101,20 @@ let wordToChnageVariable = "";
 
 startButton.addEventListener("click", () => {
     wordToChnageVariable = getAWordFromArray(taylorArray);
-    display.innerHTML = underscoreLetters(wordToChnageVariable);
+    display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
 });
-
-let someThingIsclickedCorrectly: boolean = false;
-
-
 
 
 
 letters.forEach((keyboardLetter)=> {
   keyboardLetter.addEventListener("click", () => {
 
-    if(someThingIsclickedCorrectly === false && wordToChnageVariable.includes(keyboardLetter.value)){
-      someThingIsclickedCorrectly = true
+    if(wordToChnageVariable.includes(keyboardLetter.value)){
       wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
       display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable)
     } 
 
-    else if (someThingIsclickedCorrectly === true && wordToChnageVariable.includes(keyboardLetter.value)) {
-      wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value)
-      display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable)
-    }
+
 
     
 
