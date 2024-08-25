@@ -3,6 +3,18 @@ how you are planning on building it
 a list of features the game will include, in order of importance -->
 
 
+In spirit of being fortunate enough to attend the Taylor Swift Eras tour this year I had aptly thought of creating a game with taylor swift in mind
+
+This hangman game features words that are typically correlated with Taylor Swift. The styling is also matching one of her featured Albums "Lover"
+
+To play simply click the start to button to retrieve a concealed word about Taylor. To play simply click on the letters that are deemed appropriate. Letters that are included in the word will display. Letters that arent will create a hangman
+
+
+To add to the humourous aspect of the game in the desktop version, with the addition of mistakes an increasingly distraught Taylor will appear on the hang(woman)
+
+Will you be able to save Taylor from her untimely death?
+Play to find out!
+
 In my game you will be able to pick maybe th eleave of difficult and perhaps the topic that the words will include
 I am planning on building it by having buttons that once clicked will appear in the position 
 
