@@ -2,22 +2,34 @@
 
 .letters-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     
-    width: 300px;
+    width: 95vw;
 
 
     &__letter {
-        width: 60px;
-        height: 50px;
+        width: 95/6vw;
+        height: 7vh;
         background-color: $tertiary-color;
         border: 2px solid $quartenary-color;
         border-radius: 10px;
         color: $octinary-color;
+        transition: 0.3s ease;
+
+        &--y {
+            grid-column-start: 3;
+        }
+
+
+
+
+
     }
 
     &__letter:hover {
         background-color: $quartenary-color;
+        border: $tertiary-color 5px dashed;
     }
+
 }

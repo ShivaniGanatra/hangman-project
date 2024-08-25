@@ -1,25 +1,25 @@
-@use "./variables"as*;
+@use "./variables" as*;
 
 .main-buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 85vw;
-    padding: 30px;
+    width: 95vw;
+    
 
     &__button {
         background-color: $secondary-color;
         width: 100px;
         height: 50px;
         border-radius: 10px;
-        border:5px solid $quartenary-color;
+        border: 5px solid $quartenary-color;
         color: black;
         transition: ease 0.3s;
-        margin: 10px;
+        margin: 0px 5px;
     }
 
     &__button:hover {
         background-color: $tertiary-color;
+        border: dashed 5px $septenary-color;
     }
 }
-

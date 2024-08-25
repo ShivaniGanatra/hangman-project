@@ -2,7 +2,7 @@
 const letters = document.querySelectorAll<HTMLButtonElement>(
     ".letters-section__letter"
 );
-let display = document.querySelector<HTMLParagraphElement>(".display");
+let display = document.querySelector<HTMLParagraphElement>(".display__text");
 const startButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--start"
 );
@@ -65,7 +65,7 @@ const chnageLowerCaseLettersToUnderscore = (word: string) => {
 
 console.log(chnageLowerCaseLettersToUnderscore("shivANI"))
 
-let wordy = "";
+
 
 
 //This is a function that if a letter is included it will turn to uppercase

@@ -26,3 +26,20 @@ need to know sort out what wil happen if letter is included
 
 and if letter isnt included
 
+
+* Source an actual image for the hangman
+* Ajust Fonts 
+* make design resposive
+* create hearts to diplay lives
+* if person loses change start to try again 
+* maybe do gameover
+* add to github pages
+* add main heading text introcuing you to hangman game
+*adjust BEM
+* once a letter is clicked the colour of it fades - maybe it cant be clicked again
+
+
+* extra
+* if someone wins specifc things alternate phrases
+* well done youve won tickets to the eras tour
+

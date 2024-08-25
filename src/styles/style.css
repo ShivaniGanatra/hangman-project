@@ -1,46 +1,66 @@
 .letters-section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 300px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  width: 95vw;
 }
 .letters-section__letter {
-  width: 60px;
-  height: 50px;
+  width: 95/6vw;
+  height: 7vh;
   background-color: rgb(255, 197, 239);
   border: 2px solid rgb(219, 145, 238);
   border-radius: 10px;
   color: rgb(68, 52, 209);
+  transition: 0.3s ease;
+}
+.letters-section__letter--y {
+  grid-column-start: 3;
 }
 .letters-section__letter:hover {
   background-color: rgb(219, 145, 238);
+  border: rgb(255, 197, 239) 5px dashed;
+}
+
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .background {
-  width: 100%;
-  height: 100%;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-repeat: repeat;
   background-size: contain;
   background-image: url("https://i.pinimg.com/originals/89/f5/38/89f5387e9b4a3761ad9df388f0a1011c.png");
 }
 .background__flex {
-  height: 90vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
+}
+
+.heading {
+  font-size: 1.5em;
+}
+
+.hangman {
+  width: 90vw;
+  height: 27vh;
+  background-color: aqua;
+  border: rgb(255, 197, 239) 5px solid;
+  box-shadow: 5px 5px 5px rgb(180, 139, 247);
+  border-radius: 5px;
 }
 
 .display {
-  font-size: 30px;
   background-color: rgb(223, 247, 255);
-}
-
-.display-house {
-  background-color: rgb(223, 247, 255);
-  width: 300px;
-  height: 75px;
+  width: 90vw;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,13 +68,16 @@
   box-shadow: 5px 5px 5px rgb(180, 139, 247);
   border-radius: 5px;
 }
+.display__text {
+  font-size: 30px;
+  background-color: rgb(223, 247, 255);
+}
 
 .main-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 85vw;
-  padding: 30px;
+  width: 95vw;
 }
 .main-buttons__button {
   background-color: rgb(255, 230, 192);
@@ -64,8 +87,9 @@
   border: 5px solid rgb(219, 145, 238);
   color: black;
   transition: ease 0.3s;
-  margin: 10px;
+  margin: 0px 5px;
 }
 .main-buttons__button:hover {
   background-color: rgb(255, 197, 239);
+  border: dashed 5px rgb(233, 78, 217);
 }/*# sourceMappingURL=style.css.map */

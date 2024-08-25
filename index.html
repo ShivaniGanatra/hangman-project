@@ -12,15 +12,17 @@
 <body class="background">
   <div class="background__flex">
 
-    
+    <header class="heading">Hangman Taylors Version</header>
 
     <section class="main-buttons">
       <button class="main-buttons__button main-buttons__button--start">Start</button>
       <button class="main-buttons__button main-buttons__button--refresh">Refresh</button>
     </section>
 
-    <span class="display-house">
-    <p class="display"></p>
+    <div class="hangman"></div>
+
+    <span class="display">
+      <p class="display__text"></p>
     </span>
 
     <section class="letters-section">
@@ -48,12 +50,12 @@
       <button class="letters-section__letter" value="v">v</button>
       <button class="letters-section__letter" value="w">w</button>
       <button class="letters-section__letter" value="x">x</button>
-      <button class="letters-section__letter" value="y">y</button>
-      <button class="letters-section__letter" value="z">z</button>
+      <button class="letters-section__letter letters-section__letter--y" value="y">y</button>
+      <button class="letters-section__letter letters-section__letter--z" value="z">z</button>
     </section>
 
   </div>
 </body>
+<script src="/src/hangmanImage.ts"></script>
 <script type="module" src="/src/main.ts"></script>
-
 </html>
