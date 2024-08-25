@@ -10,7 +10,11 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--refresh"
 );
 
-if (!letters || !display || !startButton || !refreshButton) {
+const hangman = document.querySelector<HTMLDivElement>(".hangman")
+
+
+
+if (!hangman || !letters || !display || !startButton || !refreshButton) {
     throw new Error("there is an error with the retrieval of some elements");
 }
 
@@ -96,12 +100,32 @@ const changeLetterUpperCase = (word: string, letter: string) => {
 
 let wordToChnageVariable = "";
 
+let wrongLetterClicked = 0
+
+const hangmanArray:string[] = [
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-2.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-3.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-4.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-5.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-6.jpg" alt="">`,
+  `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-7.jpg" alt="">`
+]
+
 startButton.addEventListener("click", () => {
+    hangman.innerHTML = hangmanArray[0]
+    wrongLetterClicked = 0
     wordToChnageVariable = getAWordFromArray(taylorArray);
     display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
 });
 
 
+
+
+
+
+
+console.log(hangmanArray.length)
 
 letters.forEach((keyboardLetter)=> {
   keyboardLetter.addEventListener("click", () => {
@@ -111,6 +135,50 @@ letters.forEach((keyboardLetter)=> {
       display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable)
     } 
 
+    else {
+
+    keyboardLetter.style.backgroundColor = "lightPink"
+      
+    wrongLetterClicked = wrongLetterClicked + 1
+    console.log(wrongLetterClicked)
+     
+    if(wrongLetterClicked === 1) {
+      hangman.innerHTML = hangmanArray[1]
+    } 
+
+    else if (wrongLetterClicked ===2) {
+      hangman.innerHTML = hangmanArray[2]
+    }
+
+    else if (wrongLetterClicked ===3) {
+      hangman.innerHTML = hangmanArray[3]
+    }
+
+    else if (wrongLetterClicked ===4) {
+      hangman.innerHTML = hangmanArray[4]
+    }
+
+    else if (wrongLetterClicked ===5) {
+      hangman.innerHTML = hangmanArray[5]
+    }
+
+    else if (wrongLetterClicked ===6) {
+      hangman.innerHTML = hangmanArray[6]
+    }
+
+
+     else if (wrongLetterClicked > 6) {
+      hangman.innerHTML = "noooooo"
+     }
+
+
+
+  
+      
+    }
+
+
+ 
 
 
     
@@ -133,3 +201,4 @@ letters.forEach((keyboardLetter)=> {
 //map over it
 //if the arrayOfLetters is equal to letter.value leave it as a letter
 //else turn it into an undersore
+

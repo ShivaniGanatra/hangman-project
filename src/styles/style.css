@@ -51,10 +51,19 @@
 .hangman {
   width: 90vw;
   height: 27vh;
-  background-color: aqua;
   border: rgb(255, 197, 239) 5px solid;
   box-shadow: 5px 5px 5px rgb(180, 139, 247);
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.hangman__image {
+  height: 27vh;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 1;
 }
 
 .display {
