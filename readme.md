@@ -42,7 +42,7 @@ and if letter isnt included
 * Source an actual image for the hangman
 * Ajust Fonts 
 * make design resposive
-* create hearts to diplay lives
+* create hearts to diplay lives ?
 * if person loses change start to try again 
 * maybe do gameover
 * add to github pages
@@ -54,4 +54,8 @@ and if letter isnt included
 * extra
 * if someone wins specifc things alternate phrases
 * well done youve won tickets to the eras tour
+* Add clues
+* Add sliding instructions
+* If its all correct or youve lost then the start will trun to restart
+* Add mixins for fonts, borders and flex
 
