@@ -12,14 +12,17 @@
     font-family: "Playfair Display", serif;
     font-weight: 300;
     display: flex;
-    align-self: start;
+    width: 95vw;
+    align-items: center;
+    justify-content: space-between;
     //max-width: $toggleSize + $toggleMargin;
     max-height: 30px; //$toggleSize + $toggleMargin;
     //overflow: visible;
     outline: none;
     height: 30px;
     font-size: 11px;
-    background-color: $nonary-color;
+    background-color: $nonary-color-transparent;
+    border: 4px solid $tertiary-color;
     border-radius: 30px;
 
 
@@ -32,13 +35,14 @@
     }
 
     .nav-toggle {
+        color: $octinary-color;
         $offset: $toggleSize * 0.5;
 
         position: relative;
-        width: auto;
-
-        height: $toggleSize;
-        margin: $toggleMargin;
+        //width: auto;
+        padding: 10px;
+        //height: $toggleSize;
+        //margin: $toggleMargin;
         z-index: 2;
 
         &:hover {
@@ -102,7 +106,7 @@
 .heading {
     font-family: "Parisienne", cursive;
     @include flex-center (row);
-    font-size: 15px;
+    font-size: 14px;
     
     -webkit-text-fill-color: $nonary-color; /* Will override color (regardless of order) */
     -webkit-text-stroke: 0.5px $octinary-color;

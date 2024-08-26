@@ -32,22 +32,24 @@
   font-family: "Playfair Display", serif;
   font-weight: 300;
   display: flex;
-  align-self: start;
+  width: 95vw;
+  align-items: center;
+  justify-content: space-between;
   max-height: 30px;
   outline: none;
   height: 30px;
   font-size: 11px;
-  background-color: rgb(223, 247, 255);
+  background-color: rgba(223, 247, 255, 0.76);
+  border: 4px solid rgb(255, 197, 239);
   border-radius: 30px;
 }
 .nav-container.is-active .nav-items {
   transform: translate(0, 0);
 }
 .nav-container .nav-toggle {
+  color: rgb(75, 33, 160);
   position: relative;
-  width: auto;
-  height: 40px;
-  margin: 10px;
+  padding: 10px;
   z-index: 2;
 }
 .nav-container .nav-toggle:hover {
@@ -103,7 +105,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 14px;
   -webkit-text-fill-color: rgb(223, 247, 255); /* Will override color (regardless of order) */
   -webkit-text-stroke: 0.5px rgb(75, 33, 160);
 }
@@ -146,24 +148,19 @@
   background-color: rgb(223, 247, 255);
 }
 
-.main-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 95vw;
-}
 .main-buttons__button {
   font-family: "Playfair Display", serif;
   font-size: 11px;
   font-weight: 200;
-  background-color: rgb(255, 230, 192);
+  background-color: rgb(223, 247, 255);
   height: 30px;
-  border-radius: 10px;
-  border: 5px solid rgb(255, 230, 192);
+  border-radius: 30px;
+  border: 5px solid rgb(223, 247, 255);
   transition: ease 0.3s;
   margin: 0px 5px;
+  color: rgb(255, 58, 186);
 }
 .main-buttons__button:hover {
   background-color: rgb(255, 197, 239);
-  border: dashed 5px rgb(255, 58, 186);
+  border: dashed 2px rgb(255, 58, 186);
 }/*# sourceMappingURL=style.css.map */

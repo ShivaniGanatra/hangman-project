@@ -1,10 +1,8 @@
 @use "./variables" as*;
 
 .main-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 95vw;
+
+    
     
 
 
@@ -12,18 +10,19 @@
         font-family: "Playfair Display", serif;
         font-size: 11px;
         font-weight: 200;
-        background-color: $secondary-color;
+        background-color: $nonary-color;
         //width: 100px;
         height: 30px;
-        border-radius: 10px;
-        border: 5px solid $secondary-color;
+        border-radius: 30px;
+        border: 5px solid $nonary-color;
         //color: black;
         transition: ease 0.3s;
         margin: 0px 5px;
+        color: $septenary-color;
     }
 
     &__button:hover {
         background-color: $tertiary-color;
-        border: dashed 5px $septenary-color;
+        border: dashed 2px $septenary-color;
     }
 }
