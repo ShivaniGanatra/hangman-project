@@ -5,9 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    
     width: 95vw;
-
 
     &__letter {
         font-family: "Parisienne", cursive;
@@ -28,7 +26,17 @@
 
     &__letter:hover {
         background-color: $quartenary-color;
-        border: $tertiary-color 5px dashed;
+        border: $tertiary-color 2px dashed;
     }
 
 }
+
+@media screen and (min-width:768px){
+    .letters-section {
+        &__letter {
+            height: 6vh;
+            @include keyboard-text(35px); 
+        }
+    }
+}
+

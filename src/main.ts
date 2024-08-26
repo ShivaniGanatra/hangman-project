@@ -1,7 +1,7 @@
 //Query Selectors
 const nav = document.querySelector(".nav-container");
-const addClues = document.querySelector(".add-clues")
-const addCLuesInformation = document.querySelector(".nav-clues")
+const addClues = document.querySelector(".add-clues");
+const addCLuesInformation = document.querySelector(".nav-clues");
 const letters = document.querySelectorAll<HTMLButtonElement>(
     ".letters-section__letter"
 );
@@ -16,25 +16,32 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
 
 if (nav) {
-  const toggle = nav.querySelector(".nav-toggle");
-  
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      if (nav.classList.contains("is-active")) {
-        nav.classList.remove("is-active");
-      }
-      else {
-        nav.classList.add("is-active");
-      }
-    });
-    
-    nav.addEventListener("blur", () => {
-      nav.classList.remove("is-active");
-    });
-  }
+    const toggle = nav.querySelector(".nav-toggle");
+
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            if (nav.classList.contains("is-active")) {
+                nav.classList.remove("is-active");
+            } else {
+                nav.classList.add("is-active");
+            }
+        });
+
+        nav.addEventListener("blur", () => {
+            nav.classList.remove("is-active");
+        });
+    }
 }
 
-if (!hangman || !letters || !display || !startButton || !refreshButton || !addClues || !addCLuesInformation) {
+if (
+    !hangman ||
+    !letters ||
+    !display ||
+    !startButton ||
+    !refreshButton ||
+    !addClues ||
+    !addCLuesInformation
+) {
     throw new Error("there is an error with the retrieval of some elements");
 }
 
@@ -70,7 +77,7 @@ const taylorClues: string[] = [
     "One of Taylors earlier albums",
 ];
 
-console.log(taylorClues.length)
+console.log(taylorClues.length);
 
 refreshButton.addEventListener("click", () => location.reload());
 
@@ -83,7 +90,7 @@ const getAWordFromArray = (array: string[]): string => {
     let randomNumberBetween0andLastIndex: number = Math.floor(
         Math.random() * array.length
     );
-    const word:string = array[randomNumberBetween0andLastIndex];
+    const word: string = array[randomNumberBetween0andLastIndex];
     console.log(word + " index is " + randomNumberBetween0andLastIndex);
     return word;
 };
@@ -92,15 +99,17 @@ const getAWordFromArray = (array: string[]): string => {
 //the remaining apparent letters are uppercased
 //these were the uppercase letters are the letters that te user has selected
 
-const chnageLowerCaseLettersToUnderscore = (word: string):string => {
-    const splitToLetters:string[] = word.split("");
-    const lowerCaseToUnderscoredArray:string[] = splitToLetters.map((letter) => {
-        if (letter === letter.toLowerCase()) {
-            return "_";
-        } else {
-            return letter;
+const chnageLowerCaseLettersToUnderscore = (word: string): string => {
+    const splitToLetters: string[] = word.split("");
+    const lowerCaseToUnderscoredArray: string[] = splitToLetters.map(
+        (letter) => {
+            if (letter === letter.toLowerCase()) {
+                return "_";
+            } else {
+                return letter;
+            }
         }
-    });
+    );
     return lowerCaseToUnderscoredArray.join(",");
 };
 
@@ -113,8 +122,8 @@ console.log(chnageLowerCaseLettersToUnderscore("shivANI"));
 //This is because .toUpperCase and .toLowerCase can be repeteadly passed through
 //and chnaged enough
 
-const changeLetterUpperCase = (word: string, letter: string):string => {
-    let newWord:string[] = word.split("").map((char:string) => {
+const changeLetterUpperCase = (word: string, letter: string): string => {
+    let newWord: string[] = word.split("").map((char: string) => {
         if (char === letter) {
             return char.toUpperCase();
         } else return char;
@@ -132,9 +141,9 @@ const changeLetterUpperCase = (word: string, letter: string):string => {
 //make a seperate function to display to the inner HTML
 //this function will turn lowercase letters to "_"
 
-let wordToChnageVariable:string = "";
+let wordToChnageVariable: string = "";
 
-let wrongLetterClicked:number = 0;
+let wrongLetterClicked: number = 0;
 
 const hangmanArray: string[] = [
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="">`,
@@ -158,30 +167,35 @@ console.log(hangmanArray.length);
 
 letters.forEach((keyboardLetter) => {
     keyboardLetter.addEventListener("click", () => {
+        // if the letter is in the word 
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
-            wordToChnageVariable = changeLetterUpperCase(
-                wordToChnageVariable,
-                keyboardLetter.value
-            );
-            display.innerHTML =
-                chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
+            wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value);
+            display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
+            keyboardLetter.style.backgroundColor = "violet"
+            keyboardLetter.style.color = "blue"
+
+            //if the user hasnt selected a word the same empty hangman will keep appearing
         } else if (wordToChnageVariable.length < 1) {
-            hangman.innerHTML = hangmanArray[0]
-        }
-        
-        else {
+            hangman.innerHTML = hangmanArray[0];
+
+            // else if the wrong letter is clicked
+            //the colour of the letter will chnage, and a differnt hangman image willl show accordingly
+        } else {
             keyboardLetter.style.backgroundColor = "lightPink";
+            
 
             wrongLetterClicked = wrongLetterClicked + 1;
             console.log(wrongLetterClicked);
 
             if (wrongLetterClicked === 1) {
                 hangman.innerHTML = hangmanArray[1];
-                addClues.innerHTML += " & Clues"
-                
-                let indexOfWord:number = taylorArray.indexOf(wordToChnageVariable.toLowerCase())
-                addCLuesInformation.innerHTML = "Clue: " + taylorClues[indexOfWord]
-                
+                addClues.innerHTML += " & Clues";
+
+                let indexOfWord: number = taylorArray.indexOf(
+                    wordToChnageVariable.toLowerCase()
+                );
+                addCLuesInformation.innerHTML =
+                    "Clue: " + taylorClues[indexOfWord];
             } else if (wrongLetterClicked === 2) {
                 hangman.innerHTML = hangmanArray[2];
             } else if (wrongLetterClicked === 3) {

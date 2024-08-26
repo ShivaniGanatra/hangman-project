@@ -2,23 +2,15 @@
 
 .main-buttons {
 
-    
-    
-
-
     &__button {
         font-family: "Playfair Display", serif;
-        font-size: 11px;
-        font-weight: 200;
+        font-weight: 300;
         background-color: $nonary-color;
-        //width: 100px;
-        height: 30px;
         border-radius: 30px;
         border: 5px solid $nonary-color;
-        //color: black;
         transition: ease 0.3s;
-        margin: 0px 5px;
         color: $septenary-color;
+        font-size: 1em;
     }
 
     &__button:hover {
@@ -26,4 +18,8 @@
         border: dashed 2px $septenary-color;
         color: $octinary-color;
     }
+}
+
+@media screen and (min-width:768px){
+
 }
