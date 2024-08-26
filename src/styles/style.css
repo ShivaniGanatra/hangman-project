@@ -48,6 +48,7 @@
 }
 .nav-container .nav-toggle {
   color: rgb(75, 33, 160);
+  border-radius: 30px;
   position: relative;
   padding: 10px;
   z-index: 2;
@@ -78,6 +79,12 @@
   padding: 10px;
   transition: background-color 0.3s ease;
   color: rgb(255, 58, 186);
+}
+.nav-container .nav-items .nav-clues {
+  background: #f1d3f8;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  color: rgb(75, 33, 160);
 }
 
 .background {
@@ -145,7 +152,6 @@
 .display__text {
   font-family: "Playfair Display", serif;
   font-size: 30px;
-  background-color: rgb(223, 247, 255);
 }
 
 .main-buttons__button {
@@ -163,4 +169,5 @@
 .main-buttons__button:hover {
   background-color: rgb(255, 197, 239);
   border: dashed 2px rgb(255, 58, 186);
+  color: rgb(75, 33, 160);
 }/*# sourceMappingURL=style.css.map */

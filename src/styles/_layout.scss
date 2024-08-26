@@ -37,16 +37,20 @@
     .nav-toggle {
         color: $octinary-color;
         $offset: $toggleSize * 0.5;
-
+        
+        
+        border-radius: 30px;
         position: relative;
         //width: auto;
         padding: 10px;
         //height: $toggleSize;
         //margin: $toggleMargin;
         z-index: 2;
+        
 
         &:hover {
             cursor: pointer;
+   
         }
 
 
@@ -78,6 +82,13 @@
             transition: background-color .3s ease;
             color : $septenary-color
 
+        }
+
+        .nav-clues {
+            background: lighten($quartenary-color, 15%);
+            padding: 10px;
+            transition: background-color .3s ease;
+            color : $octinary-color
         }
     }
 }
@@ -155,6 +166,7 @@
     &__text {
         font-family: "Playfair Display", serif;
         font-size: 30px;
-        background-color: $nonary-color;
+
+        //background-color: $nonary-color;
     }
 }
