@@ -5,13 +5,20 @@
   width: 95vw;
 }
 .letters-section__letter {
+  font-family: "Parisienne", cursive;
   width: 95/6vw;
   height: 7vh;
   background-color: rgb(255, 197, 239);
   border: 2px solid rgb(219, 145, 238);
   border-radius: 10px;
-  color: rgb(68, 52, 209);
+  color: rgb(75, 33, 160);
   transition: 0.3s ease;
+  font-size: 25px;
+  color: rgb(255, 58, 186);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 .letters-section__letter--y {
   grid-column-start: 3;
@@ -21,8 +28,54 @@
   border: rgb(255, 197, 239) 5px dashed;
 }
 
-* {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+.nav-container {
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  display: flex;
+  align-self: start;
+  max-height: 30px;
+  outline: none;
+  height: 30px;
+  font-size: 11px;
+  background-color: rgb(223, 247, 255);
+  border-radius: 30px;
+}
+.nav-container.is-active .nav-items {
+  transform: translate(0, 0);
+}
+.nav-container .nav-toggle {
+  position: relative;
+  width: auto;
+  height: 40px;
+  margin: 10px;
+  z-index: 2;
+}
+.nav-container .nav-toggle:hover {
+  cursor: pointer;
+}
+.nav-container .nav-items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 300px;
+  max-width: 50vw;
+  width: 100vw;
+  height: auto;
+  z-index: 1;
+  padding: 80px 20px 20px 10px;
+  transition: transform 0.7s ease;
+  transform: translate(calc(-100% - 50px), 0);
+  background: rgb(223, 247, 255);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px 0;
+  align-content: start;
+}
+.nav-container .nav-items .nav-item {
+  background: #eefbff;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  color: rgb(255, 58, 186);
 }
 
 .background {
@@ -45,7 +98,17 @@
 }
 
 .heading {
-  font-size: 1.5em;
+  font-family: "Parisienne", cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 15px;
+  -webkit-text-fill-color: rgb(223, 247, 255); /* Will override color (regardless of order) */
+  -webkit-text-stroke: 0.5px rgb(75, 33, 160);
+}
+.heading__title {
+  margin: 0;
 }
 
 .hangman {
@@ -78,6 +141,7 @@
   border-radius: 5px;
 }
 .display__text {
+  font-family: "Playfair Display", serif;
   font-size: 30px;
   background-color: rgb(223, 247, 255);
 }
@@ -89,16 +153,17 @@
   width: 95vw;
 }
 .main-buttons__button {
+  font-family: "Playfair Display", serif;
+  font-size: 11px;
+  font-weight: 200;
   background-color: rgb(255, 230, 192);
-  width: 100px;
-  height: 50px;
+  height: 30px;
   border-radius: 10px;
-  border: 5px solid rgb(219, 145, 238);
-  color: black;
+  border: 5px solid rgb(255, 230, 192);
   transition: ease 0.3s;
   margin: 0px 5px;
 }
 .main-buttons__button:hover {
   background-color: rgb(255, 197, 239);
-  border: dashed 5px rgb(233, 78, 217);
+  border: dashed 5px rgb(255, 58, 186);
 }/*# sourceMappingURL=style.css.map */

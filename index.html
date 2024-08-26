@@ -6,13 +6,38 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + TS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./src/styles/style.scss">
 </head>
 
 <body class="background">
+
   <div class="background__flex">
 
-    <header class="heading">Hangman Taylors Version</header>
+    
+    <div class="nav-container" tabindex="0">
+      
+      <div class="nav-toggle">Instructions</div>
+      
+      
+      
+      <div class="nav-items">
+        <p class="nav-item">To play simply click start to retrieve a
+          randomised word. Click the letters which you think are included
+          in the word and save Taylor. With each incorrect letter the hangman
+          will start to appear</p>
+      </div>
+    </div>
+
+
+
+    <header class="heading">
+      <h1 class="heading__title">Hangman Taylors Version</h1>
+    </header>
 
     <section class="main-buttons">
       <button class="main-buttons__button main-buttons__button--start">Start</button>
@@ -59,4 +84,5 @@
   </div>
 </body>
 <script type="module" src="/src/main.ts"></script>
+
 </html>

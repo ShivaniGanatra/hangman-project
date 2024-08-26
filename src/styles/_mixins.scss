@@ -5,11 +5,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: $flex-direction;
+    
 }
 
-@mixin keyboard-text($color:$septenary-color) {
-    font-size: 12px;
-    color: $color;
+@mixin keyboard-text($font-size:12px) {
+    font-size: $font-size;
+    color: $septenary-color;
 }
 
 @mixin instructions-text($color:$septenary-color) {

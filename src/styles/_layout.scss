@@ -1,7 +1,81 @@
-@use "./variables" as*;
+@import "./variables";
+@import "./mixins";
 
-* {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+
+
+
+
+.nav-container {
+    //font-family: "Poppins", sans-serif;
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    display: flex;
+    align-self: start;
+    //max-width: $toggleSize + $toggleMargin;
+    max-height: 30px; //$toggleSize + $toggleMargin;
+    //overflow: visible;
+    outline: none;
+    height: 30px;
+    font-size: 11px;
+    background-color: $nonary-color;
+    border-radius: 30px;
+
+
+
+    &.is-active {
+
+        .nav-items {
+            transform: translate(0, 0);
+        }
+    }
+
+    .nav-toggle {
+        $offset: $toggleSize * 0.5;
+
+        position: relative;
+        width: auto;
+
+        height: $toggleSize;
+        margin: $toggleMargin;
+        z-index: 2;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+
+
+    }
+
+    .nav-items {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 300px;
+        max-width: 50vw;
+        width: 100vw;
+        height: auto;
+        z-index: 1;
+        padding: 80px 20px 20px 10px;
+        transition: transform .7s ease;
+        transform: translate(calc(-100% - 50px), 0);
+        background: $nonary-color;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 5px 0;
+        align-content: start;
+        
+
+        .nav-item {
+            background: lighten($nonary-color, 3%);
+            padding: 10px;
+            transition: background-color .3s ease;
+            color : $septenary-color
+
+        }
+    }
 }
 
 .background {
@@ -26,7 +100,18 @@
 }
 
 .heading {
-    font-size: 1.5em;
+    font-family: "Parisienne", cursive;
+    @include flex-center (row);
+    font-size: 15px;
+    
+    -webkit-text-fill-color: $nonary-color; /* Will override color (regardless of order) */
+    -webkit-text-stroke: 0.5px $octinary-color;
+
+    &__title {
+        margin: 0;
+        //letter-spacing: 0px;
+    }
+
 }
 
 .hangman {
@@ -35,20 +120,20 @@
 
     border: $tertiary-color 5px solid;
     box-shadow: 5px 5px 5px $senary-color;
-    
+
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
-    
+
 
     &__image {
         height: 27vh;
         width: auto;
         mix-blend-mode: multiply;
         opacity: 1.0;
-        
+
     }
 }
 
@@ -64,6 +149,7 @@
     border-radius: 5px;
 
     &__text {
+        font-family: "Playfair Display", serif;
         font-size: 30px;
         background-color: $nonary-color;
     }
