@@ -135,10 +135,39 @@
     &__text {
         font-family: "Playfair Display", serif;
         font-size: 30px;
+        margin: 0;
     }
 }
 
 @media screen and (min-width:768px){
+    .hangman {
+        height: 40vh;
+        margin: 10px;
+
+        &__image {
+            height: 40vh;
+        }
+    }
+
+    .heading {
+        font-size: 25px;
+    }
+
+    .nav-container {
+        height: 30px;
+        font-size: 0.9em;
+    }
+
+    .display {
+        height: 8vh;
+        &__text {
+            font-size: 35px;
+        }
+    }
+    
+}
+
+@media screen and (min-width:1024px){
     .hangman {
         height: 35vh;
 
@@ -148,12 +177,18 @@
     }
 
     .heading {
-        font-size: 25px;
+        font-size: 35px;
     }
 
     .nav-container {
-        height: 50px;
-        font-size: 1.3em;
+        height: 54px;
+        font-size: 1.6em;
+    }
+
+    .display {
+        &__text {
+            font-size: 65px;
+        }
     }
     
 }

@@ -35,7 +35,16 @@
     .letters-section {
         &__letter {
             height: 6vh;
-            @include keyboard-text(35px); 
+            @include keyboard-text(34px); 
+        }
+    }
+}
+
+@media screen and (min-width:1024px){
+    .letters-section {
+        &__letter {
+            height: 6vh;
+            @include keyboard-text(48px); 
         }
     }
 }

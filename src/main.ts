@@ -74,7 +74,7 @@ const taylorClues: string[] = [
     "People often propose with this song",
     "This song is featured in Lover",
     "One of Taylors earlier albums",
-    "One of Taylors earlier albums",
+    "A song featured on Speak Now",
 ];
 
 console.log(taylorClues.length);
@@ -153,6 +153,8 @@ const hangmanArray: string[] = [
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-5.jpg" alt="">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-6.jpg" alt="">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-7.jpg" alt="">`,
+    `<img class="hangman__image" src="https://media.tenor.com/FFurq2xQgeoAAAAM/taylor-swift-cheers.gif" alt="">`,
+    `<img class="hangman__image" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmVvZzhxeGV6YWQyenFnOXkzbjd2ZzlmZWs5NGl1cG8xZ2w1aXl1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11wKUA9rPyvyuI/giphy.webp" alt="">`
 ];
 
 startButton.addEventListener("click", () => {
@@ -173,6 +175,13 @@ letters.forEach((keyboardLetter) => {
             display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
             keyboardLetter.style.backgroundColor = "violet"
             keyboardLetter.style.color = "blue"
+
+            const isUpperCase = (str: string) => str === str.toUpperCase();
+            if(isUpperCase(wordToChnageVariable)){
+                display.innerHTML = `${wordToChnageVariable} is the correct answer. Click restart to play again`
+                hangman.innerHTML = hangmanArray[8]
+                startButton.innerHTML = "Restart";
+            }
 
             //if the user hasnt selected a word the same empty hangman will keep appearing
         } else if (wordToChnageVariable.length < 1) {
@@ -206,12 +215,17 @@ letters.forEach((keyboardLetter) => {
                 hangman.innerHTML = hangmanArray[5];
             } else if (wrongLetterClicked === 6) {
                 hangman.innerHTML = hangmanArray[6];
-            } else if (wrongLetterClicked > 6) {
-                hangman.innerHTML = "noooooo";
+            } else if (wrongLetterClicked ===7) {
+                hangman.innerHTML = hangmanArray[7]
+                startButton.innerHTML = "Restart";
+                display.style.fontSize = "24px";
+                display.innerHTML = `The answer was ${wordToChnageVariable.toUpperCase()} click Restart to play again` 
             }
         }
     });
 });
+
+
 
 //if the wordtoChange includes the letter it should let me know
 //nothing in display should chnage here
