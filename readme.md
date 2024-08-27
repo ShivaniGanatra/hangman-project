@@ -59,3 +59,5 @@ and if letter isnt included
 * If its all correct or youve lost then the start will trun to restart
 * Add mixins for fonts, borders and flex
 
+//added gifs but add class to all images and make sure the display width fits
+

@@ -1,4 +1,6 @@
 //Query Selectors
+import { taylorClues, taylorArray, hangmanArray, winningGifsArray, loosingGifsArray } from "./data";
+
 const nav = document.querySelector(".nav-container");
 const addClues = document.querySelector(".add-clues");
 const addCLuesInformation = document.querySelector(".nav-clues");
@@ -45,37 +47,7 @@ if (
     throw new Error("there is an error with the retrieval of some elements");
 }
 
-const taylorArray: string[] = [
-    "thirteen",
-    "august",
-    "lover",
-    "december",
-    "style",
-    "folklore",
-    "evermore",
-    "midnights",
-    "alltoowell",
-    "lovestory",
-    "archer",
-    "fearless",
-    "enchanted",
-];
 
-const taylorClues: string[] = [
-    "Are you even a Swiftie if you dont know Taylors favourite number",
-    "This song is featured in Folklore",
-    "The perfect wedding song",
-    "This song was inspired by Taylor Lautner",
-    "Someone who is chic and fashionable is someone that has a good sense of ......",
-    "One of Taylors more cottagecore albums",
-    "One of Taylors more cottagecore albums",
-    "Think purple",
-    "Theres a ten minute version of this song",
-    "People often propose with this song",
-    "This song is featured in Lover",
-    "One of Taylors earlier albums",
-    "A song featured on Speak Now",
-];
 
 console.log(taylorClues.length);
 
@@ -86,7 +58,7 @@ refreshButton.addEventListener("click", () => location.reload());
 //random numebr shouls get an index from the array and display it
 //do functions and interactivity seperately
 
-const getAWordFromArray = (array: string[]): string => {
+const getARandomStringFromArray = (array: string[]): string => {
     let randomNumberBetween0andLastIndex: number = Math.floor(
         Math.random() * array.length
     );
@@ -145,22 +117,12 @@ let wordToChnageVariable: string = "";
 
 let wrongLetterClicked: number = 0;
 
-const hangmanArray: string[] = [
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-2.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-3.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-4.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-5.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-6.jpg" alt="">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-7.jpg" alt="">`,
-    `<img class="hangman__image" src="https://media.tenor.com/FFurq2xQgeoAAAAM/taylor-swift-cheers.gif" alt="">`,
-    `<img class="hangman__image" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmVvZzhxeGV6YWQyenFnOXkzbjd2ZzlmZWs5NGl1cG8xZ2w1aXl1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11wKUA9rPyvyuI/giphy.webp" alt="">`
-];
+
 
 startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0];
     wrongLetterClicked = 0;
-    wordToChnageVariable = getAWordFromArray(taylorArray);
+    wordToChnageVariable = getARandomStringFromArray(taylorArray);
     display.innerHTML =
         chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
 });
@@ -169,17 +131,21 @@ console.log(hangmanArray.length);
 
 letters.forEach((keyboardLetter) => {
     keyboardLetter.addEventListener("click", () => {
-        // if the letter is in the word 
+        // if the letter is in the word
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
-            wordToChnageVariable = changeLetterUpperCase(wordToChnageVariable,keyboardLetter.value);
-            display.innerHTML = chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
-            keyboardLetter.style.backgroundColor = "violet"
-            keyboardLetter.style.color = "blue"
+            wordToChnageVariable = changeLetterUpperCase(
+                wordToChnageVariable,
+                keyboardLetter.value
+            );
+            display.innerHTML =
+                chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
+            keyboardLetter.style.backgroundColor = "violet";
+            keyboardLetter.style.color = "blue";
 
             const isUpperCase = (str: string) => str === str.toUpperCase();
-            if(isUpperCase(wordToChnageVariable)){
-                display.innerHTML = `${wordToChnageVariable} is the correct answer. Click restart to play again`
-                hangman.innerHTML = hangmanArray[8]
+            if (isUpperCase(wordToChnageVariable)) {
+                display.innerHTML = `${wordToChnageVariable} is the correct answer. Click restart to play again`;
+                hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
             }
 
@@ -191,7 +157,6 @@ letters.forEach((keyboardLetter) => {
             //the colour of the letter will chnage, and a differnt hangman image willl show accordingly
         } else {
             keyboardLetter.style.backgroundColor = "lightPink";
-            
 
             wrongLetterClicked = wrongLetterClicked + 1;
             console.log(wrongLetterClicked);
@@ -215,17 +180,15 @@ letters.forEach((keyboardLetter) => {
                 hangman.innerHTML = hangmanArray[5];
             } else if (wrongLetterClicked === 6) {
                 hangman.innerHTML = hangmanArray[6];
-            } else if (wrongLetterClicked ===7) {
-                hangman.innerHTML = hangmanArray[7]
+            } else if (wrongLetterClicked === 7) {
+                //not getting hangman anymore you officially lose so you find the answer
+                hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
-                display.style.fontSize = "24px";
-                display.innerHTML = `The answer was ${wordToChnageVariable.toUpperCase()} click Restart to play again` 
+                display.innerHTML = `The answer was ${wordToChnageVariable.toUpperCase()} click Restart to play again`;
             }
         }
     });
 });
-
-
 
 //if the wordtoChange includes the letter it should let me know
 //nothing in display should chnage here
