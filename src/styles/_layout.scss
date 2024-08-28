@@ -17,9 +17,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         //padding: 30px;
     }
+}
+
+.main {
+    @include flex-center(column)
 }
 
 .nav-container {
@@ -50,7 +54,7 @@
         position: relative;
         padding: 10px;
         z-index: 2;
-        
+
         &:hover {
             cursor: pointer;
         }
@@ -73,19 +77,19 @@
         grid-template-columns: 1fr;
         grid-gap: 5px 0;
         align-content: start;
-        
+
         .nav-item {
             background: lighten($nonary-color, 3%);
             padding: 10px;
             transition: background-color .3s ease;
-            color : $septenary-color
+            color: $septenary-color
         }
 
         .nav-clues {
             background: lighten($quartenary-color, 15%);
             padding: 10px;
             transition: background-color .3s ease;
-            color : $octinary-color
+            color: $octinary-color
         }
     }
 }
@@ -93,9 +97,9 @@
 .heading {
     font-family: "Parisienne", cursive;
     @include flex-center (row);
-    font-size: 14px;
-    
-    -webkit-text-fill-color: $nonary-color; 
+    font-size: 0.9em;
+
+    -webkit-text-fill-color: $nonary-color;
     -webkit-text-stroke: 0.5px $octinary-color;
 
     &__title {
@@ -107,11 +111,9 @@
 
 .hangman {
     @include flex-center(row);
+    @include shadow-borders;
     width: 90vw;
     height: 27vh;
-    border: $tertiary-color 5px solid;
-    box-shadow: 5px 5px 5px $senary-color;
-    border-radius: 5px;
     background-color: white;
 
     &__image {
@@ -122,15 +124,14 @@
 }
 
 .display {
+    @include shadow-borders;
     background-color: $nonary-color;
     width: 90vw;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: $tertiary-color 5px solid;
-    box-shadow: 5px 5px 5px $senary-color;
-    border-radius: 5px;
+
 
     &__text {
         font-family: "Playfair Display", serif;
@@ -140,7 +141,7 @@
     }
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .hangman {
         height: 40vh;
         margin: 10px;
@@ -155,25 +156,35 @@
     }
 
     .nav-container {
-        height: 30px;
-        font-size: 0.9em;
+        height: 53px;
+        font-size: 1.5em;
     }
 
     .display {
         height: 8vh;
+
         &__text {
             font-size: 35px;
         }
     }
-    
+
 }
 
-@media screen and (min-width:1024px){
+@media screen and (min-width:1024px) {
+    .main {
+        @include flex-center(row);
+
+        &__variables {
+            margin: 15px;
+            @include flex-center(column);
+        }
+    }
     .hangman {
-        height: 35vh;
+        height: 57vh;
+        width: 53vw;
 
         &__image {
-            height: 35vh;
+            height: 57vh;
         }
     }
 
@@ -187,9 +198,10 @@
     }
 
     .display {
+        width: 53vw;
         &__text {
             font-size: 65px;
         }
     }
-    
+
 }

@@ -138,6 +138,7 @@ startButton.addEventListener("click", () => {
     display.innerHTML =
     chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
     addClues.innerHTML = "Instructions"
+    addCLuesInformation.innerHTML ="";
 
     letters.forEach((keyboardLetter) => {
         const keyboardStyling = keyboardLetter.classList
@@ -198,8 +199,10 @@ letters.forEach((keyboardLetter) => {
                 let indexOfWord: number = taylorArray.indexOf(
                     wordToChnageVariable.toLowerCase()
                 );
+
                 addCLuesInformation.innerHTML =
                     "Clue: " + taylorClues[indexOfWord];
+
             } else if (wrongLetterClicked === 2) {
                 hangman.innerHTML = hangmanArray[2];
             } else if (wrongLetterClicked === 3) {
@@ -256,7 +259,12 @@ letters.forEach((keyboardLetter) => {
 //and add "--isIncorrect"
 
 
+//add and remove classlist to fix display size
+//keep track of wins
 
+
+//for display add and remove background classlist or when there is a gif
+//add classes to gifs to make sure ther is no overflow
 
 //fix responsiveness
 

@@ -18,7 +18,13 @@
     color: $color;
 }
 
-@mixin borders($color:$septenary-color) {
-    border: 5px solid $color;
+// @mixin borders($color:$septenary-color) {
+//     border: 5px solid $color;
+// } - find where this is used
+
+@mixin shadow-borders($border-color:$tertiary-color,$shadow-color:$senary-color) {
+    border: $border-color 5px solid;
+    box-shadow: 5px 5px 5px $shadow-color;
+    border-radius: 5px;
 }
 

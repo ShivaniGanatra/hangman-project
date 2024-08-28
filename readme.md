@@ -61,3 +61,6 @@ and if letter isnt included
 
 //added gifs but add class to all images and make sure the display width fits
 
+*add phrases for each time you win
+* everytime you win you get a cat becasue taylor sift loves cats
+
