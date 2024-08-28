@@ -8,9 +8,9 @@
     
 }
 
-@mixin keyboard-text($font-size:12px) {
+@mixin keyboard-text($font-size:12px, $color:$septenary-color) {
     font-size: $font-size;
-    color: $septenary-color;
+    color: $color;
 }
 
 @mixin instructions-text($color:$septenary-color) {

@@ -12,7 +12,7 @@ const nav = document.querySelector(".nav-container");
 const addClues = document.querySelector(".add-clues");
 const addCLuesInformation = document.querySelector(".nav-clues");
 const letters = document.querySelectorAll<HTMLButtonElement>(
-    ".letters-section__letter"
+    ".keyboard__letter"
 );
 let display = document.querySelector<HTMLParagraphElement>(".display__text");
 const startButton = document.querySelector<HTMLButtonElement>(
@@ -53,12 +53,21 @@ if (
     throw new Error("there is an error with the retrieval of some elements");
 }
 
+//adding unclicked styling 
+//this is just chnageing the colours of the font and the background as well as the border
+letters.forEach((keyboardLetter) => {
+    const keyboardStyling = keyboardLetter.classList
+    keyboardStyling.add("isUnclicked")
+})
+
+
+
 console.log(taylorClues.length);
 
 refreshButton.addEventListener("click", () => location.reload());
 
 //have an arrayof words
-//use math.radom to get a random number bewteen 0 and 12
+//use math.radom to get a random number based on array length
 //random numebr shouls get an index from the array and display it
 //do functions and interactivity seperately
 
@@ -107,12 +116,14 @@ const changeOneLetterToUpperCase = (word: string, letter: string): string => {
     return newWord.join("") as string;
 };
 
+console.log(changeOneLetterToUpperCase("shivani","i"))
+
 //cant pass through underscore once its chnaged
 //can pass though chnaged characters
 //will tackle problem in two stages
 
 //will have a word display
-//if letter is in word then chnage the repective letter to a capital
+//if letter is in word then chnage the respective letter to a capital
 
 //make a seperate function to display to the inner HTML
 //this function will turn lowercase letters to "_"
@@ -127,12 +138,21 @@ startButton.addEventListener("click", () => {
     display.innerHTML =
     chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
     addClues.innerHTML = "Instructions"
+
+    letters.forEach((keyboardLetter) => {
+        const keyboardStyling = keyboardLetter.classList
+        keyboardStyling.remove("isCorrect")
+        keyboardStyling.remove("isIncorrect")
+        keyboardStyling.add("isUnclicked")
+    })
     //loop throught letters remove styles that youve added or overide class
 });
 
 console.log(hangmanArray.length);
 
 letters.forEach((keyboardLetter) => {
+
+    const keyboardStyling = keyboardLetter.classList
     keyboardLetter.addEventListener("click", () => {
         // if the letter is in the word
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
@@ -142,8 +162,10 @@ letters.forEach((keyboardLetter) => {
             );
             display.innerHTML =
                 chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
-            keyboardLetter.style.backgroundColor = "violet"; //cant use my own colours
-            keyboardLetter.style.color = "blue";
+            // keyboardLetter.style.backgroundColor = "violet"; //cant use my own colours
+            // keyboardLetter.style.color = "blue";
+            keyboardStyling.remove("isUnclicked")
+            keyboardStyling.add("isCorrect")
 
             //WINNING
             //below is a function which checks if string is all uppercase
@@ -162,7 +184,9 @@ letters.forEach((keyboardLetter) => {
             // else if the wrong letter is clicked
             //the colour of the letter will chnage, and a differnt hangman image willl show accordingly
         } else {
-            keyboardLetter.style.backgroundColor = "lightPink";
+            keyboardStyling.remove("isUnclicked")
+            keyboardStyling.add("isIncorrect")
+            //keyboardLetter.style.backgroundColor = "lightPink";
 
             wrongLetterClicked = wrongLetterClicked + 1;
             console.log(wrongLetterClicked);
@@ -227,9 +251,9 @@ letters.forEach((keyboardLetter) => {
 //if incorrect remove "--isUnclicked"
 //and add "--correct"
 
-//add class "--incorrect"
+//add class "--isCorrect"
 //if remove "--isUnclicked"
-//and add "--incorrect"
+//and add "--isIncorrect"
 
 
 
