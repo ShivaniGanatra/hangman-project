@@ -1,6 +1,13 @@
-//Query Selectors
-import { taylorClues, taylorArray, hangmanArray, winningGifsArray, loosingGifsArray } from "./data";
+//Imports
+import {
+    taylorClues,
+    taylorArray,
+    hangmanArray,
+    winningGifsArray,
+    loosingGifsArray,
+} from "./data";
 
+//Query Selectors
 const nav = document.querySelector(".nav-container");
 const addClues = document.querySelector(".add-clues");
 const addCLuesInformation = document.querySelector(".nav-clues");
@@ -14,7 +21,6 @@ const startButton = document.querySelector<HTMLButtonElement>(
 const refreshButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--refresh"
 );
-
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
 
 if (nav) {
@@ -47,8 +53,6 @@ if (
     throw new Error("there is an error with the retrieval of some elements");
 }
 
-
-
 console.log(taylorClues.length);
 
 refreshButton.addEventListener("click", () => location.reload());
@@ -64,7 +68,7 @@ const getARandomStringFromArray = (array: string[]): string => {
     );
     const word: string = array[randomNumberBetween0andLastIndex];
     console.log(word + " index is " + randomNumberBetween0andLastIndex);
-    return word;
+    return word as string;
 };
 
 //this function will chnage all lowercase letters to underscore
@@ -82,7 +86,7 @@ const chnageLowerCaseLettersToUnderscore = (word: string): string => {
             }
         }
     );
-    return lowerCaseToUnderscoredArray.join(",");
+    return lowerCaseToUnderscoredArray.join(",") as string;
 };
 
 console.log(chnageLowerCaseLettersToUnderscore("shivANI"));
@@ -94,13 +98,13 @@ console.log(chnageLowerCaseLettersToUnderscore("shivANI"));
 //This is because .toUpperCase and .toLowerCase can be repeteadly passed through
 //and chnaged enough
 
-const changeLetterUpperCase = (word: string, letter: string): string => {
+const changeOneLetterToUpperCase = (word: string, letter: string): string => {
     let newWord: string[] = word.split("").map((char: string) => {
         if (char === letter) {
             return char.toUpperCase();
         } else return char;
     });
-    return newWord.join("");
+    return newWord.join("") as string;
 };
 
 //cant pass through underscore once its chnaged
@@ -114,17 +118,16 @@ const changeLetterUpperCase = (word: string, letter: string): string => {
 //this function will turn lowercase letters to "_"
 
 let wordToChnageVariable: string = "";
-
 let wrongLetterClicked: number = 0;
 
-
-
 startButton.addEventListener("click", () => {
-    hangman.innerHTML = hangmanArray[0];
-    wrongLetterClicked = 0;
-    wordToChnageVariable = getARandomStringFromArray(taylorArray);
+    hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
+    wrongLetterClicked = 0; //by clicking where reasigning wrong letter being clicked if its chnaged elsewhere
+    wordToChnageVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
     display.innerHTML =
-        chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
+    chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
+    addClues.innerHTML = "Instructions"
+    //loop throught letters remove styles that youve added or overide class
 });
 
 console.log(hangmanArray.length);
@@ -133,15 +136,18 @@ letters.forEach((keyboardLetter) => {
     keyboardLetter.addEventListener("click", () => {
         // if the letter is in the word
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
-            wordToChnageVariable = changeLetterUpperCase(
+            wordToChnageVariable = changeOneLetterToUpperCase(
                 wordToChnageVariable,
                 keyboardLetter.value
             );
             display.innerHTML =
                 chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
-            keyboardLetter.style.backgroundColor = "violet";
+            keyboardLetter.style.backgroundColor = "violet"; //cant use my own colours
             keyboardLetter.style.color = "blue";
 
+            //WINNING
+            //below is a function which checks if string is all uppercase
+            // if so (by cheCking if isUpperCase(wordToChnageVariable) is truthy then it means youve won )
             const isUpperCase = (str: string) => str === str.toUpperCase();
             if (isUpperCase(wordToChnageVariable)) {
                 display.innerHTML = `${wordToChnageVariable} is the correct answer. Click restart to play again`;
@@ -180,6 +186,8 @@ letters.forEach((keyboardLetter) => {
                 hangman.innerHTML = hangmanArray[5];
             } else if (wrongLetterClicked === 6) {
                 hangman.innerHTML = hangmanArray[6];
+
+                //LOOSING
             } else if (wrongLetterClicked === 7) {
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
@@ -197,3 +205,34 @@ letters.forEach((keyboardLetter) => {
 //map over it
 //if the arrayOfLetters is equal to letter.value leave it as a letter
 //else turn it into an undersore
+
+
+// Bugs to fix
+//Colours dont chnage back 
+//cant use my own colours with scss and interacting with dom
+
+//clues arent updated when clicked restart
+
+//used someone elses code for slidy navigation is that okay
+//everyhitng els eis my own 
+
+
+//Wednesday 
+//fix issues with letters by adding and removing classlists
+//add class "--isUnclicked"
+//in js for each letter add this
+
+
+//add class "--correct"
+//if incorrect remove "--isUnclicked"
+//and add "--correct"
+
+//add class "--incorrect"
+//if remove "--isUnclicked"
+//and add "--incorrect"
+
+
+
+
+//fix responsiveness
+
