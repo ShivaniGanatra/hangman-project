@@ -23,7 +23,10 @@
 }
 
 .main {
-    @include flex-center(column)
+    @include flex-center(column);
+    &__variables {
+        @include flex-center(column) 
+    }
 }
 
 .nav-container {
@@ -121,6 +124,12 @@
         width: auto;
         opacity: 1.0;
     }
+
+    &__GIF {
+        max-width: 90vw;
+        max-height: 27vh;
+        object-fit: contain;
+    }
 }
 
 .display {
@@ -144,11 +153,20 @@
 @media screen and (min-width:768px) {
     .hangman {
         height: 40vh;
+        width: 90vw;
         margin: 10px;
 
         &__image {
             height: 40vh;
         }
+
+        &__GIF {
+            max-width: 90vw;
+            min-height: 40vh;
+            object-fit: contain;
+        }
+
+
     }
 
     .heading {
@@ -186,6 +204,12 @@
         &__image {
             height: 57vh;
         }
+
+        &__GIF {
+            max-height: 57vh;
+            max-width: 53vw;
+            object-fit: contain;  
+        }
     }
 
     .heading {
@@ -200,7 +224,7 @@
     .display {
         width: 53vw;
         &__text {
-            font-size: 65px;
+            font-size: 47px;
         }
     }
 
