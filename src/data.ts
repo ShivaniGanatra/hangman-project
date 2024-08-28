@@ -60,7 +60,7 @@ export const winningGifsArray :string[] = [
 
 //these are all lyrics turned into phrases if someone has won or not
 export const loosingPhrases:string[] = [
-    `Were you send by someone you wanted me dead? The answer was actually `,
+    `Were you sent by someone you wanted me dead? The answer was actually `,
     `Come on, come on, don't leave me like this. I thought you figured out the answer was `,
     `Now I'm down bad crying at the gym. The answer was `,
     `I knew you were trouble when you walked in. So shame on me the answer was `,
@@ -71,7 +71,7 @@ export const loosingPhrases:string[] = [
 ]
 
 export const winningPhrases:string[] = [
-    `Karma is my boyfriend, Karma is a god, Karma is the reason you got the answer `,
+    //`Karma is my boyfriend, Karma is a god, Karma is the reason you got the answer `,
     `I don't know about you. But I'm feeling twenty-two. I'm saved because you pulled through. The answer was `,
-    `I'm wonderstruck, blushing all the way home because you got the answer `
+    // `I'm wonderstruck, blushing all the way home because you got the answer `
 ]

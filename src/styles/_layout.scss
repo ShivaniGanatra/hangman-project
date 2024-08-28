@@ -24,9 +24,7 @@
 
 .main {
     @include flex-center(column);
-    &__variables {
-        @include flex-center(column) 
-    }
+
 }
 
 .nav-container {
@@ -38,8 +36,8 @@
     justify-content: space-between;
     //max-height: 30px; //$toggleSize + $toggleMargin;
     outline: none;
-    height: 30px;
-    font-size: 0.7em;
+    height: 5vh;
+    font-size: 2.1vh;
     background-color: $nonary-color;
     border: 4px solid $tertiary-color;
     border-radius: 30px;
@@ -94,20 +92,29 @@
             transition: background-color .3s ease;
             color: $octinary-color
         }
+
+        .nav-decoration {
+            background: $nonary-color;
+            padding: 10px;
+            transition: background-color .3s ease;
+            color: $octinary-color 
+        }
+
     }
 }
 
 .heading {
     font-family: "Parisienne", cursive;
     @include flex-center (row);
-    font-size: 0.9em;
+    
 
     -webkit-text-fill-color: $nonary-color;
     -webkit-text-stroke: 0.5px $octinary-color;
 
     &__title {
+        font-size: 4vh;
         margin: 0;
-        //letter-spacing: 0px;
+        text-align: center;
     }
 
 }
@@ -144,7 +151,7 @@
 
     &__text {
         font-family: "Playfair Display", serif;
-        font-size: 15px;
+        font-size: 4.5vh;
         padding: 10px;
         margin: 0;
     }
@@ -169,63 +176,51 @@
 
     }
 
-    .heading {
-        font-size: 25px;
-    }
-
-    .nav-container {
-        height: 53px;
-        font-size: 1.5em;
-    }
-
     .display {
         height: 8vh;
 
-        &__text {
-            font-size: 35px;
-        }
     }
 
 }
 
 @media screen and (min-width:1024px) {
     .main {
-        @include flex-center(row);
+        display: grid;
+        grid-template-areas: "hangman hangman keyboard keyboard"
+            "display display display display ";
 
-        &__variables {
-            margin: 15px;
-            @include flex-center(column);
+    }
+
+    .heading {
+        &__title {
+           font-size: 7vh;
         }
     }
+
     .hangman {
-        height: 57vh;
-        width: 53vw;
+        height: 50vh;
+        width: 55vw;
+        grid-area: hangman;
 
         &__image {
-            height: 57vh;
+            height: 50vh;
         }
 
         &__GIF {
             max-height: 57vh;
             max-width: 53vw;
-            object-fit: contain;  
+            object-fit: contain;
         }
     }
 
-    .heading {
-        font-size: 35px;
-    }
-
-    .nav-container {
-        height: 54px;
-        font-size: 1.6em;
-    }
 
     .display {
-        width: 53vw;
-        &__text {
-            font-size: 47px;
-        }
+        width: 88vw;
+        align-self: center;
+        justify-self: center;
+        grid-area: display;
+
     }
 
 }
+

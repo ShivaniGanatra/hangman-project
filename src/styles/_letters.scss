@@ -1,10 +1,6 @@
 @use "./variables"as*;
 @import "./mixins";
 
-.test {
-    background-color: BLUE;
-}
-
 .keyboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -17,7 +13,7 @@
         height: 7vh;
         border-radius: 10px;
         transition: 0.3s ease;
-        @include keyboard-text(25px,"grey");
+        @include keyboard-text(4vh);
         @include flex-center(row);
 
         &--y {
@@ -53,7 +49,6 @@
     .keyboard {
         &__letter {
             height: 6vh;
-            @include keyboard-text(36px); 
         }
     }
 }
@@ -61,14 +56,15 @@
 @media screen and (min-width:1024px){
     .keyboard {
         @include shadow-borders($denary-color,$tertiary-color);
+        grid-area: keyboard;
         margin: 15px;
+        height: 50vh;
         width: 30vw;
         background-color: $senary-color;
-        padding: 10px;
+        
         &__letter {
-            height: 9vh;
-            width: 30/6vw;
-            @include keyboard-text(60px); 
+            height: 10vh;
+            width: 5vw;
         }
     }
 }

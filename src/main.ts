@@ -55,14 +55,14 @@ if (
     throw new Error("there is an error with the retrieval of some elements");
 }
 
+
+
 //adding unclicked styling 
 //this is just chnageing the colours of the font and the background as well as the border
 letters.forEach((keyboardLetter) => {
     const keyboardStyling = keyboardLetter.classList
     keyboardStyling.add("isUnclicked")
 })
-
-
 
 console.log(taylorClues.length);
 
@@ -137,6 +137,7 @@ startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
     wrongLetterClicked = 0; //by clicking where reasigning wrong letter being clicked if its chnaged elsewhere
     wordToChnageVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
+    display.style.fontSize= "4.5vh";
     display.innerHTML =
     chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
     addClues.innerHTML = "Instructions"
@@ -175,6 +176,7 @@ letters.forEach((keyboardLetter) => {
             // if so (by cheCking if isUpperCase(wordToChnageVariable) is truthy then it means youve won )
             const isUpperCase = (str: string) => str === str.toUpperCase();
             if (isUpperCase(wordToChnageVariable)) {
+                display.style.fontSize ="2vh"
                 display.innerHTML =  getARandomStringFromArray(winningPhrases) + wordToChnageVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
@@ -221,6 +223,7 @@ letters.forEach((keyboardLetter) => {
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
+                display.style.fontSize ="2vh"
                 display.innerHTML =  getARandomStringFromArray(loosingPhrases) + wordToChnageVariable.toUpperCase();
             }
         }
@@ -269,4 +272,4 @@ letters.forEach((keyboardLetter) => {
 //add classes to gifs to make sure ther is no overflow
 
 //fix responsiveness
-
+//adjust font size using classes

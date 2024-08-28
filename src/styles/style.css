@@ -1,45 +1,67 @@
-.letters-section {
+.keyboard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   width: 95vw;
 }
-.letters-section__letter {
+.keyboard__letter {
   font-family: "Parisienne", cursive;
   width: 95/6vw;
   height: 7vh;
-  background-color: rgb(255, 197, 239);
-  border: 2px solid rgb(219, 145, 238);
   border-radius: 10px;
-  color: rgb(75, 33, 160);
   transition: 0.3s ease;
-  font-size: 25px;
+  font-size: 4vh;
   color: rgb(255, 58, 186);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 }
-.letters-section__letter--y {
+.keyboard__letter--y {
   grid-column-start: 3;
 }
-.letters-section__letter:hover {
+.keyboard__letter:hover {
   background-color: rgb(219, 145, 238);
   border: rgb(255, 197, 239) 2px dashed;
 }
 
+.isUnclicked {
+  color: rgb(255, 58, 186);
+  background-color: rgb(255, 197, 239);
+  border: 2px solid rgb(219, 145, 238);
+}
+
+.isIncorrect {
+  color: rgb(255, 58, 186);
+  background-color: rgb(255, 190, 177);
+  border: 2px solid violet;
+}
+
+.isCorrect {
+  color: blue;
+  background-color: violet;
+  border: 2px solid rgb(255, 197, 239);
+}
+
 @media screen and (min-width: 768px) {
-  .letters-section__letter {
+  .keyboard__letter {
     height: 6vh;
-    font-size: 34px;
-    color: rgb(255, 58, 186);
   }
 }
 @media screen and (min-width: 1024px) {
-  .letters-section__letter {
-    height: 6vh;
-    font-size: 48px;
-    color: rgb(255, 58, 186);
+  .keyboard {
+    border: violet 5px solid;
+    box-shadow: 5px 5px 5px rgb(255, 197, 239);
+    border-radius: 5px;
+    grid-area: keyboard;
+    margin: 15px;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgb(180, 139, 247);
+  }
+  .keyboard__letter {
+    height: 10vh;
+    width: 5vw;
   }
 }
 .background {
@@ -58,7 +80,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .nav-container {
@@ -69,8 +98,8 @@
   align-items: center;
   justify-content: space-between;
   outline: none;
-  height: 30px;
-  font-size: 0.7em;
+  height: 5vh;
+  font-size: 2.1vh;
   background-color: rgb(223, 247, 255);
   border: 4px solid rgb(255, 197, 239);
   border-radius: 30px;
@@ -118,6 +147,12 @@
   transition: background-color 0.3s ease;
   color: rgb(75, 33, 160);
 }
+.nav-container .nav-items .nav-decoration {
+  background: rgb(223, 247, 255);
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  color: rgb(75, 33, 160);
+}
 
 .heading {
   font-family: "Parisienne", cursive;
@@ -125,12 +160,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  font-size: 14px;
   -webkit-text-fill-color: rgb(223, 247, 255);
   -webkit-text-stroke: 0.5px rgb(75, 33, 160);
 }
 .heading__title {
+  font-size: 4vh;
   margin: 0;
+  text-align: center;
 }
 
 .hangman {
@@ -138,11 +174,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 90vw;
-  height: 27vh;
   border: rgb(255, 197, 239) 5px solid;
   box-shadow: 5px 5px 5px rgb(180, 139, 247);
   border-radius: 5px;
+  width: 90vw;
+  height: 27vh;
   background-color: white;
 }
 .hangman__image {
@@ -150,21 +186,27 @@
   width: auto;
   opacity: 1;
 }
+.hangman__GIF {
+  max-width: 90vw;
+  max-height: 27vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 
 .display {
+  border: rgb(255, 197, 239) 5px solid;
+  box-shadow: 5px 5px 5px rgb(180, 139, 247);
+  border-radius: 5px;
   background-color: rgb(223, 247, 255);
   width: 90vw;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: rgb(255, 197, 239) 5px solid;
-  box-shadow: 5px 5px 5px rgb(180, 139, 247);
-  border-radius: 5px;
 }
 .display__text {
   font-family: "Playfair Display", serif;
-  font-size: 15px;
+  font-size: 4.5vh;
   padding: 10px;
   margin: 0;
 }
@@ -172,41 +214,49 @@
 @media screen and (min-width: 768px) {
   .hangman {
     height: 40vh;
+    width: 90vw;
     margin: 10px;
   }
   .hangman__image {
     height: 40vh;
   }
-  .heading {
-    font-size: 25px;
-  }
-  .nav-container {
-    height: 30px;
-    font-size: 0.9em;
+  .hangman__GIF {
+    max-width: 90vw;
+    min-height: 40vh;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .display {
     height: 8vh;
   }
-  .display__text {
-    font-size: 35px;
-  }
 }
 @media screen and (min-width: 1024px) {
+  .main {
+    display: grid;
+    grid-template-areas: "hangman hangman keyboard keyboard" "display display display display ";
+  }
+  .heading__title {
+    font-size: 7vh;
+  }
   .hangman {
-    height: 35vh;
+    height: 50vh;
+    width: 55vw;
+    grid-area: hangman;
   }
   .hangman__image {
-    height: 35vh;
+    height: 50vh;
   }
-  .heading {
-    font-size: 35px;
+  .hangman__GIF {
+    max-height: 57vh;
+    max-width: 53vw;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
-  .nav-container {
-    height: 54px;
-    font-size: 1.6em;
-  }
-  .display__text {
-    font-size: 65px;
+  .display {
+    width: 88vw;
+    align-self: center;
+    justify-self: center;
+    grid-area: display;
   }
 }
 .main-buttons__button {
