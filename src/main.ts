@@ -5,6 +5,8 @@ import {
     hangmanArray,
     winningGifsArray,
     loosingGifsArray,
+    loosingPhrases,
+    winningPhrases
 } from "./data";
 
 //Query Selectors
@@ -173,7 +175,7 @@ letters.forEach((keyboardLetter) => {
             // if so (by cheCking if isUpperCase(wordToChnageVariable) is truthy then it means youve won )
             const isUpperCase = (str: string) => str === str.toUpperCase();
             if (isUpperCase(wordToChnageVariable)) {
-                display.innerHTML = `${wordToChnageVariable} is the correct answer. Click restart to play again`;
+                display.innerHTML =  getARandomStringFromArray(winningPhrases) + wordToChnageVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
             }
@@ -219,7 +221,7 @@ letters.forEach((keyboardLetter) => {
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
-                display.innerHTML = `The answer was ${wordToChnageVariable.toUpperCase()} click Restart to play again`;
+                display.innerHTML =  getARandomStringFromArray(loosingPhrases) + wordToChnageVariable.toUpperCase();
             }
         }
     });

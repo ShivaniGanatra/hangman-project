@@ -64,3 +64,8 @@ and if letter isnt included
 *add phrases for each time you win
 * everytime you win you get a cat becasue taylor sift loves cats
 
+*add classes to hangmangifs to adjust size
+
+//easy, medium and hard version
+instead of start do easy medium hard buttons
+
