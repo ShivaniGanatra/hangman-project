@@ -67,5 +67,9 @@ and if letter isnt included
 *add classes to hangmangifs to adjust size
 
 //easy, medium and hard version
-instead of start do easy medium hard buttons
+instead of start do easy medium hard buttons only in desktop to save phone spacee ?
+//as hover effects to links
+
+alert maybe when soone clicks restart
+are you sure you want to restart your progress with be lost
 

@@ -154,6 +154,30 @@
   color: rgb(75, 33, 160);
 }
 
+.highscore {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0px 9px;
+  height: 100%;
+  background-color: #ffe0da;
+  color: rgb(255, 58, 186);
+}
+.highscore__score {
+  padding: 0px 2px;
+  margin: 0px;
+  font-size: 2.7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.highscore__title {
+  margin: 0%;
+}
+
 .heading {
   font-family: "Parisienne", cursive;
   display: flex;
@@ -260,6 +284,7 @@
   }
 }
 .main-buttons__button {
+  align-items: center;
   font-family: "Playfair Display", serif;
   font-weight: 300;
   background-color: rgb(223, 247, 255);

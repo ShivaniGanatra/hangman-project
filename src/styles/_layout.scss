@@ -48,6 +48,8 @@
         }
     }
 
+
+
     &__toggle {
         color: $octinary-color;
         $offset: $toggleSize * 0.5;
@@ -101,6 +103,27 @@
         color: $octinary-color 
     }
 
+}
+
+.highscore {
+    margin: 0px;
+    @include flex-center (row);
+    padding: 0px 9px;
+    height: 100%;
+    //background-color: lighten($denary-color, 10%);
+    background-color: lighten($duodenary-color,8%);
+    color: $septenary-color;
+
+    &__score {
+        padding: 0px 2px;
+        margin: 0px;
+        font-size: 2.7vh;
+        @include flex-center (row)
+    }
+
+    &__title {
+        margin: 0%;
+    }
 }
 
 .heading {

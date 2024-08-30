@@ -15,7 +15,7 @@ const addClues = document.querySelector(".add-clues");
 const addCLuesInformation = document.querySelector(".instructions__clues");
 const letters =
     document.querySelectorAll<HTMLButtonElement>(".keyboard__letter");
-let display = document.querySelector<HTMLParagraphElement>(".display__text");
+const display = document.querySelector<HTMLParagraphElement>(".display__text");
 const startButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--start"
 );
@@ -24,8 +24,10 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
 );
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
 const toggle = document.querySelector<HTMLParagraphElement>(".instructions__toggle");
+const highscore = document.querySelector<HTMLParagraphElement>(".highscore__score")
 
 if (
+    !highscore||
     !hangman ||
     !letters ||
     !display ||
@@ -60,7 +62,8 @@ letters.forEach((keyboardLetter) => {
 
 console.log(taylorClues.length);
 
-refreshButton.addEventListener("click", () => location.reload());
+//refreshButton.addEventListener("click", () => location.reload());
+
 
 //have an arrayof words
 //use math.radom to get a random number based on array length
@@ -126,6 +129,7 @@ console.log(changeOneLetterToUpperCase("shivani", "i"));
 
 let wordToChnageVariable: string = "";
 let wrongLetterClicked: number = 0;
+let highscoreValue:number = 0
 
 startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
@@ -175,6 +179,8 @@ letters.forEach((keyboardLetter) => {
                     wordToChnageVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
+                highscoreValue = highscoreValue + 1
+                highscore.innerHTML = `${highscoreValue}`
             }
 
             //if the user hasnt selected a word the same empty hangman will keep appearing
@@ -219,6 +225,8 @@ letters.forEach((keyboardLetter) => {
 
                 //LOOSING
             } else if (wrongLetterClicked === 7) {
+                highscoreValue = 0
+                highscore.innerHTML = `${highscoreValue}`
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
@@ -226,6 +234,7 @@ letters.forEach((keyboardLetter) => {
                 display.innerHTML =
                     getARandomStringFromArray(loosingPhrases) +
                     wordToChnageVariable.toUpperCase();
+                
             }
         }
     });

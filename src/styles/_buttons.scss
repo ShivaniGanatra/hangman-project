@@ -1,8 +1,10 @@
 @use "./variables" as*;
+@import "./mixins";
 
 .main-buttons {
 
     &__button {
+        align-items: center;
         font-family: "Playfair Display", serif;
         font-weight: 300;
         background-color: $nonary-color;
