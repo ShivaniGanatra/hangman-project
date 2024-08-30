@@ -6,16 +6,15 @@ import {
     winningGifsArray,
     loosingGifsArray,
     loosingPhrases,
-    winningPhrases
+    winningPhrases,
 } from "./data";
 
 //Query Selectors
-const nav = document.querySelector(".nav-container");
+const instructions = document.querySelector<HTMLElement>(".instructions");
 const addClues = document.querySelector(".add-clues");
-const addCLuesInformation = document.querySelector(".nav-clues");
-const letters = document.querySelectorAll<HTMLButtonElement>(
-    ".keyboard__letter"
-);
+const addCLuesInformation = document.querySelector(".instructions__clues");
+const letters =
+    document.querySelectorAll<HTMLButtonElement>(".keyboard__letter");
 let display = document.querySelector<HTMLParagraphElement>(".display__text");
 const startButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--start"
@@ -24,24 +23,7 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--refresh"
 );
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
-
-if (nav) {
-    const toggle = nav.querySelector(".nav-toggle");
-
-    if (toggle) {
-        toggle.addEventListener("click", () => {
-            if (nav.classList.contains("is-active")) {
-                nav.classList.remove("is-active");
-            } else {
-                nav.classList.add("is-active");
-            }
-        });
-
-        nav.addEventListener("blur", () => {
-            nav.classList.remove("is-active");
-        });
-    }
-}
+const toggle = document.querySelector<HTMLParagraphElement>(".instructions__toggle");
 
 if (
     !hangman ||
@@ -50,19 +32,31 @@ if (
     !startButton ||
     !refreshButton ||
     !addClues ||
-    !addCLuesInformation
+    !addCLuesInformation ||
+    !instructions ||
+    !toggle
 ) {
     throw new Error("there is an error with the retrieval of some elements");
 }
 
+toggle.addEventListener("click", () => {
+    if (instructions.classList.contains("is-active")) {
+        instructions.classList.remove("is-active");
+    } else {
+        instructions.classList.add("is-active");
+    }
+});
 
+instructions.addEventListener("blur", () => {
+    instructions.classList.remove("is-active");
+});
 
-//adding unclicked styling 
+//adding unclicked styling
 //this is just chnageing the colours of the font and the background as well as the border
 letters.forEach((keyboardLetter) => {
-    const keyboardStyling = keyboardLetter.classList
-    keyboardStyling.add("isUnclicked")
-})
+    const keyboardStyling = keyboardLetter.classList;
+    keyboardStyling.add("isUnclicked");
+});
 
 console.log(taylorClues.length);
 
@@ -118,7 +112,7 @@ const changeOneLetterToUpperCase = (word: string, letter: string): string => {
     return newWord.join("") as string;
 };
 
-console.log(changeOneLetterToUpperCase("shivani","i"))
+console.log(changeOneLetterToUpperCase("shivani", "i"));
 
 //cant pass through underscore once its chnaged
 //can pass though chnaged characters
@@ -137,26 +131,25 @@ startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
     wrongLetterClicked = 0; //by clicking where reasigning wrong letter being clicked if its chnaged elsewhere
     wordToChnageVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
-    display.style.fontSize= "4.5vh";
+    display.style.fontSize = "4.5vh";
     display.innerHTML =
-    chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
-    addClues.innerHTML = "Instructions"
-    addCLuesInformation.innerHTML ="";
+        chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
+    addClues.innerHTML = "Instructions";
+    addCLuesInformation.innerHTML = "";
 
     letters.forEach((keyboardLetter) => {
-        const keyboardStyling = keyboardLetter.classList
-        keyboardStyling.remove("isCorrect")
-        keyboardStyling.remove("isIncorrect")
-        keyboardStyling.add("isUnclicked")
-    })
+        const keyboardStyling = keyboardLetter.classList;
+        keyboardStyling.remove("isCorrect");
+        keyboardStyling.remove("isIncorrect");
+        keyboardStyling.add("isUnclicked");
+    });
     //loop throught letters remove styles that youve added or overide class
 });
 
 console.log(hangmanArray.length);
 
 letters.forEach((keyboardLetter) => {
-
-    const keyboardStyling = keyboardLetter.classList
+    const keyboardStyling = keyboardLetter.classList;
     keyboardLetter.addEventListener("click", () => {
         // if the letter is in the word
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
@@ -168,16 +161,18 @@ letters.forEach((keyboardLetter) => {
                 chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
             // keyboardLetter.style.backgroundColor = "violet"; //cant use my own colours
             // keyboardLetter.style.color = "blue";
-            keyboardStyling.remove("isUnclicked")
-            keyboardStyling.add("isCorrect")
+            keyboardStyling.remove("isUnclicked");
+            keyboardStyling.add("isCorrect");
 
             //WINNING
             //below is a function which checks if string is all uppercase
             // if so (by cheCking if isUpperCase(wordToChnageVariable) is truthy then it means youve won )
             const isUpperCase = (str: string) => str === str.toUpperCase();
             if (isUpperCase(wordToChnageVariable)) {
-                display.style.fontSize ="2vh"
-                display.innerHTML =  getARandomStringFromArray(winningPhrases) + wordToChnageVariable;
+                display.style.fontSize = "2vh";
+                display.innerHTML =
+                    getARandomStringFromArray(winningPhrases) +
+                    wordToChnageVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
             }
@@ -189,8 +184,8 @@ letters.forEach((keyboardLetter) => {
             // else if the wrong letter is clicked
             //the colour of the letter will chnage, and a differnt hangman image willl show accordingly
         } else {
-            keyboardStyling.remove("isUnclicked")
-            keyboardStyling.add("isIncorrect")
+            keyboardStyling.remove("isUnclicked");
+            keyboardStyling.add("isIncorrect");
             //keyboardLetter.style.backgroundColor = "lightPink";
 
             wrongLetterClicked = wrongLetterClicked + 1;
@@ -199,6 +194,10 @@ letters.forEach((keyboardLetter) => {
             if (wrongLetterClicked === 1) {
                 hangman.innerHTML = hangmanArray[1];
                 addClues.innerHTML += " & Clues";
+
+                //The order of the taylor array correspond with the clues
+                //for excample the first clue is for the first word 
+                //To find the right clue we need the right index of the taylor word
 
                 let indexOfWord: number = taylorArray.indexOf(
                     wordToChnageVariable.toLowerCase()
@@ -223,8 +222,10 @@ letters.forEach((keyboardLetter) => {
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
-                display.style.fontSize ="2vh"
-                display.innerHTML =  getARandomStringFromArray(loosingPhrases) + wordToChnageVariable.toUpperCase();
+                display.style.fontSize = "2vh";
+                display.innerHTML =
+                    getARandomStringFromArray(loosingPhrases) +
+                    wordToChnageVariable.toUpperCase();
             }
         }
     });
@@ -238,22 +239,19 @@ letters.forEach((keyboardLetter) => {
 //if the arrayOfLetters is equal to letter.value leave it as a letter
 //else turn it into an undersore
 
-
 // Bugs to fix
-//Colours dont chnage back 
+//Colours dont chnage back
 //cant use my own colours with scss and interacting with dom
 
 //clues arent updated when clicked restart
 
-//used someone elses code for slidy navigation is that okay
-//everyhitng els eis my own 
+//used someone elses code for slidy instructionsigation is that okay
+//everyhitng els eis my own
 
-
-//Wednesday 
+//Wednesday
 //fix issues with letters by adding and removing classlists
 //add class "--isUnclicked"
 //in js for each letter add this
-
 
 //add class "--correct"
 //if incorrect remove "--isUnclicked"
@@ -263,10 +261,8 @@ letters.forEach((keyboardLetter) => {
 //if remove "--isUnclicked"
 //and add "--isIncorrect"
 
-
 //add and remove classlist to fix display size
 //keep track of wins
-
 
 //for display add and remove background classlist or when there is a gif
 //add classes to gifs to make sure ther is no overflow

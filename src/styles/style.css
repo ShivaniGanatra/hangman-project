@@ -90,7 +90,7 @@
   flex-direction: column;
 }
 
-.nav-container {
+.instructions {
   font-family: "Playfair Display", serif;
   font-weight: 300;
   display: flex;
@@ -104,20 +104,20 @@
   border: 4px solid rgb(255, 197, 239);
   border-radius: 30px;
 }
-.nav-container.is-active .nav-items {
+.instructions.is-active .instructions__points {
   transform: translate(0, 0);
 }
-.nav-container .nav-toggle {
+.instructions__toggle {
   color: rgb(75, 33, 160);
   border-radius: 30px;
   position: relative;
   padding: 10px;
   z-index: 2;
 }
-.nav-container .nav-toggle:hover {
+.instructions__toggle:hover {
   cursor: pointer;
 }
-.nav-container .nav-items {
+.instructions__points {
   position: absolute;
   top: 0;
   left: 0;
@@ -135,19 +135,19 @@
   grid-gap: 5px 0;
   align-content: start;
 }
-.nav-container .nav-items .nav-item {
+.instructions__point {
   background: #eefbff;
   padding: 10px;
   transition: background-color 0.3s ease;
   color: rgb(255, 58, 186);
 }
-.nav-container .nav-items .nav-clues {
+.instructions__clues {
   background: #f1d3f8;
   padding: 10px;
   transition: background-color 0.3s ease;
   color: rgb(75, 33, 160);
 }
-.nav-container .nav-items .nav-decoration {
+.instructions__decoration {
   background: rgb(223, 247, 255);
   padding: 10px;
   transition: background-color 0.3s ease;

@@ -27,7 +27,7 @@
 
 }
 
-.nav-container {
+.instructions {
     font-family: "Playfair Display", serif;
     font-weight: 300;
     display: flex;
@@ -43,12 +43,12 @@
     border-radius: 30px;
 
     &.is-active {
-        .nav-items {
+        .instructions__points {
             transform: translate(0, 0);
         }
     }
 
-    .nav-toggle {
+    &__toggle {
         color: $octinary-color;
         $offset: $toggleSize * 0.5;
         border-radius: 30px;
@@ -61,7 +61,7 @@
         }
     }
 
-    .nav-items {
+    &__points {
         position: absolute;
         top: 0;
         left: 0;
@@ -77,30 +77,30 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 5px 0;
-        align-content: start;
-
-        .nav-item {
-            background: lighten($nonary-color, 3%);
-            padding: 10px;
-            transition: background-color .3s ease;
-            color: $septenary-color
-        }
-
-        .nav-clues {
-            background: lighten($quartenary-color, 15%);
-            padding: 10px;
-            transition: background-color .3s ease;
-            color: $octinary-color
-        }
-
-        .nav-decoration {
-            background: $nonary-color;
-            padding: 10px;
-            transition: background-color .3s ease;
-            color: $octinary-color 
-        }
-
+        align-content: start
     }
+
+    &__point {
+        background: lighten($nonary-color, 3%);
+        padding: 10px;
+        transition: background-color .3s ease;
+        color: $septenary-color
+    }
+
+    &__clues {
+        background: lighten($quartenary-color, 15%);
+        padding: 10px;
+        transition: background-color .3s ease;
+        color: $octinary-color
+    }
+
+    &__decoration {
+        background: $nonary-color;
+        padding: 10px;
+        transition: background-color .3s ease;
+        color: $octinary-color 
+    }
+
 }
 
 .heading {

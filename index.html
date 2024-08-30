@@ -18,26 +18,27 @@
 
   <div class="background__flex">
 
-    <div class="nav-container" tabindex="0">
+    <aside class="instructions" tabindex="0">
       
-      <div class="nav-toggle add-clues">Instructions</div>
+      <p class="add-clues instructions__title instructions__toggle">Instructions</p>
+      
       <section class="main-buttons">
         <button class="main-buttons__button main-buttons__button--start">Start</button>
         <button class="main-buttons__button main-buttons__button--refresh">Refresh</button>
       </section>
       
-      
-      <div class="nav-items">
-        <p class="nav-decoration"></p>
-        <li class="nav-item">To play click start</li>
-        <li class="nav-item">A concealed word will appear in the display</li>
-        <li class="nav-item">Simply click a letter on the keyboard provided</li>  
-        <li class="nav-item">If the letter is correct it will display</li>
-        <li class="nav-item">Else you will start to create the hangman</li> 
-        <li class="nav-item">If you make a mistake (even once) you will get a clue (in here)</li>     
-        <p class="nav-clues"></p>
-      </div>
-    </div>
+      <!-- if i do a ul instead of section here the dots dissapear -->
+      <section class="instructions__points">
+        <p class="instructions__decoration"></p>
+        <li class="instructions__point">To play click start</li>
+        <li class="instructions__point">A concealed word will appear in the display</li>
+        <li class="instructions__point">Simply click a letter on the keyboard provided</li>  
+        <li class="instructions__point">If the letter is correct it will display</li>
+        <li class="instructions__point">Else you will start to create the hangman</li> 
+        <li class="instructions__point">If you make a mistake (even once) you will get a clue (in here)</li>     
+        <p class="instructions__clues"></p>
+      </section>
+    </aside>
 
     <header class="heading">
       <h1 class="heading__title">Hangman Taylors Version</h1>
@@ -45,17 +46,15 @@
 
     <main class="main">
 
-      
-      <div class="main__hangman hangman">
+      <section class="hangman">
         <img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="">
-      </div>
+      </section>
 
-      <span class="main__display display">
+      <span class="display">
         <p class="display__text"></p>
       </span>
       
-
-      <section class="main__keyboard keyboard">
+      <section class="keyboard">
         <button class="keyboard__letter" value="a">a</button>
         <button class="keyboard__letter" value="b">b</button>
         <button class="keyboard__letter" value="c">c</button>

@@ -30,6 +30,8 @@ export const taylorClues: string[] = [
     "A song featured on Speak Now",
 ];
 
+//The strings below could have been kept directly in main however i preffred to keep it in here 
+//because i felt it looked neater
 export const hangmanArray: string[] = [
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-2.jpg" alt="">`,
@@ -71,7 +73,7 @@ export const loosingPhrases:string[] = [
 ]
 
 export const winningPhrases:string[] = [
-    //`Karma is my boyfriend, Karma is a god, Karma is the reason you got the answer `,
+    `Karma is my boyfriend, Karma is a god, Karma is the reason you got the answer `,
     `I don't know about you. But I'm feeling twenty-two. I'm saved because you pulled through. The answer was `,
-    // `I'm wonderstruck, blushing all the way home because you got the answer `
+    `I'm wonderstruck, blushing all the way home because you got the answer `
 ]
