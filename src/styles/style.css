@@ -141,6 +141,13 @@
   transition: background-color 0.3s ease;
   color: rgb(255, 58, 186);
 }
+.instructions__highscore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 5vh;
+}
 .instructions__clues {
   background: #f1d3f8;
   padding: 10px;
@@ -152,6 +159,19 @@
   padding: 10px;
   transition: background-color 0.3s ease;
   color: rgb(75, 33, 160);
+}
+.instructions__highscoreTitle {
+  background-color: #ffe0da;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  color: rgb(255, 58, 186);
+}
+.instructions__highscoreValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 3vh;
 }
 
 .highscore {

@@ -86,7 +86,14 @@
         background: lighten($nonary-color, 3%);
         padding: 10px;
         transition: background-color .3s ease;
-        color: $septenary-color
+        color: $septenary-color;
+
+
+    }
+
+    &__highscore {
+        @include flex-center(row);
+        font-size: 5vh;
     }
 
     &__clues {
@@ -103,7 +110,21 @@
         color: $octinary-color 
     }
 
+    &__highscoreTitle {
+        background-color: lighten($duodenary-color,8%);
+        padding: 10px;
+        transition: background-color .3s ease;
+        color: $septenary-color;
+    }
+
+    &__highscoreValue {
+        @include flex-center(row);
+        font-size: 3vh;
+    }
+
 }
+
+
 
 .highscore {
     margin: 0px;
@@ -124,6 +145,7 @@
     &__title {
         margin: 0%;
     }
+
 }
 
 .heading {

@@ -25,8 +25,10 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
 const toggle = document.querySelector<HTMLParagraphElement>(".instructions__toggle");
 const highscore = document.querySelector<HTMLParagraphElement>(".highscore__score")
+const highscoreInInstructions = document.querySelector<HTMLParagraphElement>(".instructions__highscoreValue");
 
 if (
+    !highscoreInInstructions||
     !highscore||
     !hangman ||
     !letters ||
@@ -130,6 +132,16 @@ console.log(changeOneLetterToUpperCase("shivani", "i"));
 let wordToChnageVariable: string = "";
 let wrongLetterClicked: number = 0;
 let highscoreValue:number = 0
+let highestHighscore:number = 0
+
+
+const gethighestHighScore = () => {
+    //basically is the highscorevalue is higher than the highestHighscore only then update it
+    if(highscoreValue> highestHighscore) {
+        highestHighscore = highscoreValue
+    }
+    highscoreInInstructions.innerHTML = `${highestHighscore}`
+}
 
 startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
@@ -155,6 +167,7 @@ console.log(hangmanArray.length);
 letters.forEach((keyboardLetter) => {
     const keyboardStyling = keyboardLetter.classList;
     keyboardLetter.addEventListener("click", () => {
+        
         // if the letter is in the word
         if (wordToChnageVariable.includes(keyboardLetter.value)) {
             wordToChnageVariable = changeOneLetterToUpperCase(
@@ -181,6 +194,7 @@ letters.forEach((keyboardLetter) => {
                 startButton.innerHTML = "Restart";
                 highscoreValue = highscoreValue + 1
                 highscore.innerHTML = `${highscoreValue}`
+                gethighestHighScore()
             }
 
             //if the user hasnt selected a word the same empty hangman will keep appearing
