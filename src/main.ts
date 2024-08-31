@@ -23,13 +23,18 @@ const refreshButton = document.querySelector<HTMLButtonElement>(
     ".main-buttons__button--refresh"
 );
 const hangman = document.querySelector<HTMLDivElement>(".hangman");
-const toggle = document.querySelector<HTMLParagraphElement>(".instructions__toggle");
-const highscore = document.querySelector<HTMLParagraphElement>(".highscore__score")
-const highscoreInInstructions = document.querySelector<HTMLParagraphElement>(".instructions__highscoreValue");
+const toggle = document.querySelector<HTMLParagraphElement>(
+    ".instructions__toggle"
+);
+const highscore =
+    document.querySelector<HTMLParagraphElement>(".highscore__score");
+const highscoreInInstructions = document.querySelector<HTMLParagraphElement>(
+    ".instructions__highscoreValue"
+);
 
 if (
-    !highscoreInInstructions||
-    !highscore||
+    !highscoreInInstructions ||
+    !highscore ||
     !hangman ||
     !letters ||
     !display ||
@@ -65,7 +70,6 @@ letters.forEach((keyboardLetter) => {
 console.log(taylorClues.length);
 
 //refreshButton.addEventListener("click", () => location.reload());
-
 
 //have an arrayof words
 //use math.radom to get a random number based on array length
@@ -131,17 +135,17 @@ console.log(changeOneLetterToUpperCase("shivani", "i"));
 
 let wordToChnageVariable: string = "";
 let wrongLetterClicked: number = 0;
-let highscoreValue:number = 0
-let highestHighscore:number = 0
-
+let highscoreValue: number = 0;
+let highestHighscore: number = 0;
+let youveWonOrLost: boolean = false;
 
 const gethighestHighScore = () => {
     //basically is the highscorevalue is higher than the highestHighscore only then update it
-    if(highscoreValue> highestHighscore) {
-        highestHighscore = highscoreValue
+    if (highscoreValue > highestHighscore) {
+        highestHighscore = highscoreValue;
     }
-    highscoreInInstructions.innerHTML = `${highestHighscore}`
-}
+    highscoreInInstructions.innerHTML = `${highestHighscore}`;
+};
 
 startButton.addEventListener("click", () => {
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
@@ -159,6 +163,7 @@ startButton.addEventListener("click", () => {
         keyboardStyling.remove("isIncorrect");
         keyboardStyling.add("isUnclicked");
     });
+    youveWonOrLost = false;
     //loop throught letters remove styles that youve added or overide class
 });
 
@@ -167,9 +172,13 @@ console.log(hangmanArray.length);
 letters.forEach((keyboardLetter) => {
     const keyboardStyling = keyboardLetter.classList;
     keyboardLetter.addEventListener("click", () => {
-        
+        if (youveWonOrLost === true) {
+            display.innerHTML = "Click restart to play again";
+            wordToChnageVariable = "";
+        }
+
         // if the letter is in the word
-        if (wordToChnageVariable.includes(keyboardLetter.value)) {
+        else if (wordToChnageVariable.includes(keyboardLetter.value)) {
             wordToChnageVariable = changeOneLetterToUpperCase(
                 wordToChnageVariable,
                 keyboardLetter.value
@@ -192,9 +201,10 @@ letters.forEach((keyboardLetter) => {
                     wordToChnageVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
-                highscoreValue = highscoreValue + 1
-                highscore.innerHTML = `${highscoreValue}`
-                gethighestHighScore()
+                highscoreValue = highscoreValue + 1;
+                highscore.innerHTML = `${highscoreValue}`;
+                gethighestHighScore();
+                youveWonOrLost = true;
             }
 
             //if the user hasnt selected a word the same empty hangman will keep appearing
@@ -216,7 +226,7 @@ letters.forEach((keyboardLetter) => {
                 addClues.innerHTML += " & Clues";
 
                 //The order of the taylor array correspond with the clues
-                //for excample the first clue is for the first word 
+                //for excample the first clue is for the first word
                 //To find the right clue we need the right index of the taylor word
 
                 let indexOfWord: number = taylorArray.indexOf(
@@ -225,7 +235,6 @@ letters.forEach((keyboardLetter) => {
 
                 addCLuesInformation.innerHTML =
                     "Clue: " + taylorClues[indexOfWord];
-
             } else if (wrongLetterClicked === 2) {
                 hangman.innerHTML = hangmanArray[2];
             } else if (wrongLetterClicked === 3) {
@@ -239,8 +248,8 @@ letters.forEach((keyboardLetter) => {
 
                 //LOOSING
             } else if (wrongLetterClicked === 7) {
-                highscoreValue = 0
-                highscore.innerHTML = `${highscoreValue}`
+                highscoreValue = 0;
+                highscore.innerHTML = `${highscoreValue}`;
                 //not getting hangman anymore you officially lose so you find the answer
                 hangman.innerHTML = getARandomStringFromArray(loosingGifsArray);
                 startButton.innerHTML = "Restart";
@@ -248,7 +257,7 @@ letters.forEach((keyboardLetter) => {
                 display.innerHTML =
                     getARandomStringFromArray(loosingPhrases) +
                     wordToChnageVariable.toUpperCase();
-                
+                youveWonOrLost = true;
             }
         }
     });
