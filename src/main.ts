@@ -7,6 +7,7 @@ import {
     loosingGifsArray,
     loosingPhrases,
     winningPhrases,
+    restartGif,
 } from "./data";
 
 //Query Selectors
@@ -175,6 +176,7 @@ letters.forEach((keyboardLetter) => {
         if (youveWonOrLost === true) {
             display.innerHTML = "Click restart to play again";
             wordToChnageVariable = "";
+            hangman.innerHTML = restartGif[0];
         }
 
         // if the letter is in the word

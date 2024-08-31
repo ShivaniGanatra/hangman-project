@@ -77,3 +77,7 @@ export const winningPhrases:string[] = [
     `I don't know about you. But I'm feeling twenty-two. I'm saved because you pulled through. The answer was `,
     `I'm wonderstruck, blushing all the way home because you got the answer `
 ]
+
+export const restartGif: string[] = [
+    `<img class="hangman__GIF" src="https://i.giphy.com/XMmf6i3xuKZiPMvNZe.webp" alt="Taylor celebrating">`,  
+]
