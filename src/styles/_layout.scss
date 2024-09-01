@@ -24,7 +24,6 @@
 
 .main {
     @include flex-center(column);
-
 }
 
 .instructions {
@@ -48,14 +47,12 @@
         }
     }
 
-
-
     &__toggle {
         color: $octinary-color;
-        $offset: $toggleSize * 0.5;
+        //$offset: $toggleSize * 0.5;
         border-radius: 30px;
         position: relative;
-        padding: 10px;
+        padding: 7px;
         z-index: 2;
 
         &:hover {
@@ -72,23 +69,21 @@
         width: 100vw;
         height: auto;
         z-index: 1;
-        padding: 80px 20px 20px 10px;
+        padding: 100px 20px 20px 10px;
         transition: transform .7s ease;
         transform: translate(calc(-100% - 50px), 0);
         background: $nonary-color;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 5px 0;
-        align-content: start
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
     }
 
     &__point {
         background: lighten($nonary-color, 3%);
-        padding: 10px;
+        padding:10px;
         transition: background-color .3s ease;
         color: $septenary-color;
-
-
     }
 
     &__highscore {
@@ -98,20 +93,13 @@
 
     &__clues {
         background: lighten($quartenary-color, 15%);
-        padding: 10px;
+        padding:10px;
         transition: background-color .3s ease;
         color: $octinary-color
     }
 
-    &__decoration {
-        background: $nonary-color;
-        padding: 10px;
-        transition: background-color .3s ease;
-        color: $octinary-color 
-    }
-
     &__highscoreTitle {
-        background-color: lighten($duodenary-color,8%);
+        background-color: lighten($duodenary-color, 8%);
         padding: 10px;
         transition: background-color .3s ease;
         color: $septenary-color;
@@ -121,10 +109,7 @@
         @include flex-center(row);
         font-size: 3vh;
     }
-
 }
-
-
 
 .highscore {
     margin: 0px;
@@ -132,7 +117,7 @@
     padding: 0px 9px;
     height: 100%;
     //background-color: lighten($denary-color, 10%);
-    background-color: lighten($duodenary-color,8%);
+    background-color: lighten($duodenary-color, 8%);
     color: $septenary-color;
 
     &__score {
@@ -145,14 +130,11 @@
     &__title {
         margin: 0%;
     }
-
 }
 
 .heading {
     font-family: "Parisienne", cursive;
     @include flex-center (row);
-    
-
     -webkit-text-fill-color: $nonary-color;
     -webkit-text-stroke: 0.5px $octinary-color;
 
@@ -161,7 +143,6 @@
         margin: 0;
         text-align: center;
     }
-
 }
 
 .hangman {
@@ -193,12 +174,12 @@
     justify-content: center;
     align-items: center;
 
-
     &__text {
         font-family: "Playfair Display", serif;
         font-size: 4.5vh;
         padding: 10px;
         margin: 0;
+        color: darken($octinary-color, 9%);
     }
 }
 
@@ -218,14 +199,15 @@
             object-fit: contain;
         }
 
-
     }
 
     .display {
         height: 8vh;
-
     }
 
+    .instructions__points {
+        padding: 120px 20px 20px 10px;
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -233,12 +215,20 @@
         display: grid;
         grid-template-areas: "hangman hangman keyboard keyboard"
             "display display display display ";
+    }
 
+    .instructions {
+        &__decoration {
+            background: $nonary-color;
+            padding: 10px;
+            transition: background-color .3s ease;
+            color: $octinary-color
+        }
     }
 
     .heading {
         &__title {
-           font-size: 7vh;
+            font-size: 7vh;
         }
     }
 
@@ -264,8 +254,5 @@
         align-self: center;
         justify-self: center;
         grid-area: display;
-
     }
-
 }
-

@@ -22,40 +22,38 @@
 
       <p class="add-clues instructions__title instructions__toggle">Instructions</p>
       
-      <span class="highscore">
+      <section class="highscore">
         <p class="highscore__title">HS :</p>
         <p class="highscore__score">0</p>
-      </span>
+      </section>
 
       <section class="main-buttons">
         <button class="main-buttons__button main-buttons__button--start">Start</button>
         <button onclick="clickRefresh()" class="main-buttons__button main-buttons__button--refresh">Refresh</button>
-      </section>
 
-      <script>
-        const clickRefresh = () => {
-          if (confirm("Are you sure you want to refresh you will lose your progress?")) {
-            location.reload()
+        <script>
+          const clickRefresh = () => {
+            if (confirm("Are you sure you want to refresh you will lose your progress?")) {
+              location.reload()
+            }
           }
-        }
-      </script>
-      <!-- https://www.tutorialspoint.com/how-to-change-button-label-in-confirm-box-using-javascript#:~:text=Creating%20a%20Custom%20Confirm%20Box,content%20according%20to%20our%20requirements. -->
-       <!-- make confirmation box girlie pop -->
+        </script>
+
+      </section>
 
       <!-- if i do a ul instead of section here the dots dissapear -->
       <section class="instructions__points">
-        <p class="instructions__decoration"></p>
-        <li class="instructions__point">To play click start</li>
-        <li class="instructions__point">A word will appear in the display</li>
+        <li class="instructions__point">To play click start a concealed word will appear</li>
         <li class="instructions__point">Simply click the letters in the keyboard provided</li>
-        <li class="instructions__point">If you make a mistake (even once) you will get a clue (in here)</li>
-        <li class="instructions__point">The highscore will increase with each consecutive win</li>
-        <li class="instructions__point">The highscore (HS) is displayed in the orange area</li>
-        <li class="instructions__highscoreTitle">The highscore to beat is currently 
+        <li class="instructions__point">If you make a mistake you will get a clue (in here)</li>
+        <li class="instructions__point">The highscore displays the number of consecutive wins</li>
+        <li class="instructions__point">The highscore (HS) is in the orange part of the top panel</li>
+        <li class="instructions__highscoreTitle">The highest amount of consecutive wins is
           <p class="instructions__highscoreValue">0</p> 
         </li>
         <p class="instructions__clues"></p>
       </section>
+
     </aside>
 
     <header class="heading">

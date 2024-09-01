@@ -12,8 +12,10 @@ import {
 
 //Query Selectors
 const instructions = document.querySelector<HTMLElement>(".instructions");
-const addClues = document.querySelector(".add-clues");
-const addCLuesInformation = document.querySelector(".instructions__clues");
+const addClues = document.querySelector<HTMLParagraphElement>(".add-clues");
+const addCLuesInformation = document.querySelector<HTMLParagraphElement>(
+    ".instructions__clues"
+);
 const letters =
     document.querySelectorAll<HTMLButtonElement>(".keyboard__letter");
 const display = document.querySelector<HTMLParagraphElement>(".display__text");
@@ -149,6 +151,7 @@ const gethighestHighScore = () => {
 };
 
 startButton.addEventListener("click", () => {
+    addClues.style.fontSize = "2.1vh"
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
     wrongLetterClicked = 0; //by clicking where reasigning wrong letter being clicked if its chnaged elsewhere
     wordToChnageVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
@@ -174,9 +177,9 @@ letters.forEach((keyboardLetter) => {
     const keyboardStyling = keyboardLetter.classList;
     keyboardLetter.addEventListener("click", () => {
         if (youveWonOrLost === true) {
-            display.innerHTML = "Click restart to play again";
+            display.innerHTML = "Click Restart to play again";
             wordToChnageVariable = "";
-            hangman.innerHTML = restartGif[0];
+            hangman.innerHTML = getARandomStringFromArray(restartGif);
         }
 
         // if the letter is in the word
@@ -226,6 +229,7 @@ letters.forEach((keyboardLetter) => {
             if (wrongLetterClicked === 1) {
                 hangman.innerHTML = hangmanArray[1];
                 addClues.innerHTML += " & Clues";
+                addClues.style.fontSize = "1.5vh"
 
                 //The order of the taylor array correspond with the clues
                 //for excample the first clue is for the first word

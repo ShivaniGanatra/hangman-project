@@ -111,7 +111,7 @@
   color: rgb(75, 33, 160);
   border-radius: 30px;
   position: relative;
-  padding: 10px;
+  padding: 7px;
   z-index: 2;
 }
 .instructions__toggle:hover {
@@ -126,14 +126,13 @@
   width: 100vw;
   height: auto;
   z-index: 1;
-  padding: 80px 20px 20px 10px;
+  padding: 100px 20px 20px 10px;
   transition: transform 0.7s ease;
   transform: translate(calc(-100% - 50px), 0);
   background: rgb(223, 247, 255);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 5px 0;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .instructions__point {
   background: #eefbff;
@@ -150,12 +149,6 @@
 }
 .instructions__clues {
   background: #f1d3f8;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-  color: rgb(75, 33, 160);
-}
-.instructions__decoration {
-  background: rgb(223, 247, 255);
   padding: 10px;
   transition: background-color 0.3s ease;
   color: rgb(75, 33, 160);
@@ -253,6 +246,7 @@
   font-size: 4.5vh;
   padding: 10px;
   margin: 0;
+  color: #39197a;
 }
 
 @media screen and (min-width: 768px) {
@@ -273,11 +267,20 @@
   .display {
     height: 8vh;
   }
+  .instructions__points {
+    padding: 120px 20px 20px 10px;
+  }
 }
 @media screen and (min-width: 1024px) {
   .main {
     display: grid;
     grid-template-areas: "hangman hangman keyboard keyboard" "display display display display ";
+  }
+  .instructions__decoration {
+    background: rgb(223, 247, 255);
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    color: rgb(75, 33, 160);
   }
   .heading__title {
     font-size: 7vh;
