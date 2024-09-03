@@ -2,12 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  width: 95vw;
+  margin: 5px 0px;
+  width: 98%;
+  height: 45%;
 }
 .keyboard__letter {
   font-family: "Parisienne", cursive;
-  width: 95/6vw;
-  height: 7vh;
+  width: 98/6%;
+  height: 100%;
   border-radius: 10px;
   transition: 0.3s ease;
   font-size: 4vh;
@@ -43,25 +45,26 @@
   border: 2px solid rgb(255, 197, 239);
 }
 
-@media screen and (min-width: 768px) {
-  .keyboard__letter {
-    height: 6vh;
-  }
-}
 @media screen and (min-width: 1024px) {
   .keyboard {
     border: violet 5px solid;
     box-shadow: 5px 5px 5px rgb(255, 197, 239);
     border-radius: 5px;
     grid-area: keyboard;
-    margin: 15px;
-    height: 50vh;
-    width: 30vw;
+    height: 375px;
+    width: 350px;
+    margin: 0px 15px;
     background-color: rgb(180, 139, 247);
   }
   .keyboard__letter {
-    height: 10vh;
-    width: 5vw;
+    height: 375/6px;
+    width: 350/6px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .keyboard {
+    height: 100%;
+    width: 650px;
   }
 }
 .background {
@@ -76,7 +79,8 @@
   background-image: url("https://i.pinimg.com/originals/89/f5/38/89f5387e9b4a3761ad9df388f0a1011c.png");
 }
 .background__flex {
-  height: 95vh;
+  height: 95%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,17 +92,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
+  height: 85%;
 }
 
 .instructions {
   font-family: "Playfair Display", serif;
   font-weight: 300;
   display: flex;
-  width: 95vw;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   outline: none;
-  height: 5vh;
+  height: 5%;
   font-size: 2.1vh;
   background-color: rgb(223, 247, 255);
   border: 4px solid rgb(255, 197, 239);
@@ -199,8 +205,13 @@
   flex-direction: row;
   -webkit-text-fill-color: rgb(223, 247, 255);
   -webkit-text-stroke: 0.5px rgb(75, 33, 160);
+  height: 10%;
 }
 .heading__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
   font-size: 4vh;
   margin: 0;
   text-align: center;
@@ -214,18 +225,19 @@
   border: rgb(255, 197, 239) 5px solid;
   box-shadow: 5px 5px 5px rgb(180, 139, 247);
   border-radius: 5px;
-  width: 90vw;
-  height: 27vh;
+  width: 95%;
+  height: 35%;
   background-color: white;
+  margin: 0px 0px 5px 0px;
 }
 .hangman__image {
-  height: 27vh;
+  height: 100%;
   width: auto;
   opacity: 1;
 }
 .hangman__GIF {
   max-width: 90vw;
-  max-height: 27vh;
+  max-height: 26vh;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -235,8 +247,8 @@
   box-shadow: 5px 5px 5px rgb(180, 139, 247);
   border-radius: 5px;
   background-color: rgb(223, 247, 255);
-  width: 90vw;
-  height: 10vh;
+  width: 95%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,7 +264,6 @@
 @media screen and (min-width: 768px) {
   .hangman {
     height: 40vh;
-    width: 90vw;
     margin: 10px;
   }
   .hangman__image {
@@ -273,8 +284,9 @@
 }
 @media screen and (min-width: 1024px) {
   .main {
+    width: 900px;
     display: grid;
-    grid-template-areas: "hangman hangman keyboard keyboard" "display display display display ";
+    grid-template-areas: "  hangman hangman keyboard keyboard" "display display display display ";
   }
   .instructions__decoration {
     background: rgb(223, 247, 255);
@@ -286,24 +298,44 @@
     font-size: 7vh;
   }
   .hangman {
-    height: 50vh;
-    width: 55vw;
+    height: 375px;
+    width: 550px;
+    margin: 0px;
     grid-area: hangman;
   }
   .hangman__image {
-    height: 50vh;
+    height: 375px;
   }
   .hangman__GIF {
-    max-height: 57vh;
-    max-width: 53vw;
+    max-height: 375px;
+    max-width: 550px;
     -o-object-fit: contain;
        object-fit: contain;
   }
   .display {
-    width: 88vw;
-    align-self: center;
-    justify-self: center;
+    width: 100%;
+    height: 70px;
     grid-area: display;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .main {
+    width: 100%;
+  }
+  .hangman {
+    height: 100%;
+    width: 850px;
+    margin: 0px 15px;
+  }
+  .hangman__image {
+    height: 600px;
+  }
+  .display {
+    width: 1600px;
+    height: 90px;
+  }
+  .heading__title {
+    font-size: 5.5vh;
   }
 }
 .main-buttons__button {
@@ -315,7 +347,7 @@
   border: 5px solid rgb(223, 247, 255);
   transition: ease 0.3s;
   color: rgb(255, 58, 186);
-  font-size: 1em;
+  font-size: 0.95em;
 }
 .main-buttons__button:hover {
   background-color: rgb(255, 197, 239);

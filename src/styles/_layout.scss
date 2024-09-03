@@ -13,7 +13,8 @@
     background-image: url('https://i.pinimg.com/originals/89/f5/38/89f5387e9b4a3761ad9df388f0a1011c.png');
 
     &__flex {
-        height: 95vh;
+        height: 95%;
+        width: 95%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,18 +25,22 @@
 
 .main {
     @include flex-center(column);
+    width: 100%;
+    height: 85%;
+    //border: 10px solid black;
 }
 
 .instructions {
+
     font-family: "Playfair Display", serif;
     font-weight: 300;
     display: flex;
-    width: 95vw;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     //max-height: 30px; //$toggleSize + $toggleMargin;
     outline: none;
-    height: 5vh;
+    height: 5%;
     font-size: 2.1vh;
     background-color: $nonary-color;
     border: 4px solid $tertiary-color;
@@ -49,7 +54,6 @@
 
     &__toggle {
         color: $octinary-color;
-        //$offset: $toggleSize * 0.5;
         border-radius: 30px;
         position: relative;
         padding: 7px;
@@ -81,7 +85,7 @@
 
     &__point {
         background: lighten($nonary-color, 3%);
-        padding:10px;
+        padding: 10px;
         transition: background-color .3s ease;
         color: $septenary-color;
 
@@ -94,7 +98,7 @@
 
     &__clues {
         background: lighten($quartenary-color, 15%);
-        padding:10px;
+        padding: 10px;
         transition: background-color .3s ease;
         color: $octinary-color
     }
@@ -138,8 +142,11 @@
     @include flex-center (row);
     -webkit-text-fill-color: $nonary-color;
     -webkit-text-stroke: 0.5px $octinary-color;
+    height: 10%;
+
 
     &__title {
+        @include flex-center (row);
         font-size: 4vh;
         margin: 0;
         text-align: center;
@@ -149,19 +156,20 @@
 .hangman {
     @include flex-center(row);
     @include shadow-borders;
-    width: 90vw;
-    height: 27vh;
+    width: 95%;
+    height: 35%;
     background-color: white;
+    margin: 0px 0px 5px 0px;
 
     &__image {
-        height: 27vh;
+        height: 100%;
         width: auto;
         opacity: 1.0;
     }
 
     &__GIF {
         max-width: 90vw;
-        max-height: 27vh;
+        max-height: 26vh;
         object-fit: contain;
     }
 }
@@ -169,8 +177,9 @@
 .display {
     @include shadow-borders;
     background-color: $nonary-color;
-    width: 90vw;
-    height: 10vh;
+    width: 95%;
+    //height: 10vh;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,7 +196,8 @@
 @media screen and (min-width:768px) {
     .hangman {
         height: 40vh;
-        width: 90vw;
+
+        //width: 90vw;
         margin: 10px;
 
         &__image {
@@ -213,8 +223,10 @@
 
 @media screen and (min-width:1024px) {
     .main {
+
+        width: 900px;
         display: grid;
-        grid-template-areas: "hangman hangman keyboard keyboard"
+        grid-template-areas: "  hangman hangman keyboard keyboard"
             "display display display display ";
     }
 
@@ -234,26 +246,59 @@
     }
 
     .hangman {
-        height: 50vh;
-        width: 55vw;
+        height: 375px;
+        width: 550px;
+        margin: 0px;
+
+        //width: 55vw;
         grid-area: hangman;
 
         &__image {
-            height: 50vh;
+            height: 375px;
         }
 
         &__GIF {
-            max-height: 57vh;
-            max-width: 53vw;
+            max-height: 375px;
+            max-width: 550px;
             object-fit: contain;
         }
     }
 
 
     .display {
-        width: 88vw;
-        align-self: center;
-        justify-self: center;
+        width: 100%;
+        height: 70px;
+
         grid-area: display;
+    }
+}
+
+@media screen and (min-width:1440px) {
+
+    .main {
+        width: 100%;
+    }
+
+    .hangman {
+        height: 100%;
+        width: 850px;
+        margin: 0px 15px;
+
+        &__image {
+            height: 600px;
+        }
+
+    }
+
+
+
+    .display {
+        
+        width: 1600px;
+        height: 90px
+    }
+
+    .heading__title {
+        font-size: 5.5vh;
     }
 }
