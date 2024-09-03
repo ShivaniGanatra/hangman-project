@@ -92,7 +92,7 @@ const getARandomStringFromArray = (array: string[]): string => {
 //the remaining apparent letters are uppercased
 //these were the uppercase letters are the letters that te user has selected
 
-const chnageLowerCaseLettersToUnderscore = (word: string): string => {
+const changeLowerCaseLettersToUnderscore = (word: string): string => {
     const splitToLetters: string[] = word.split("");
     const lowerCaseToUnderscoredArray: string[] = splitToLetters.map(
         (letter) => {
@@ -106,7 +106,7 @@ const chnageLowerCaseLettersToUnderscore = (word: string): string => {
     return lowerCaseToUnderscoredArray.join(",") as string;
 };
 
-console.log(chnageLowerCaseLettersToUnderscore("shivANI"));
+console.log(changeLowerCaseLettersToUnderscore("shivANI"));
 
 //This is a function that if a letter is included it will turn to uppercase
 //it takes two arguemnts the word and the letter
@@ -136,7 +136,7 @@ console.log(changeOneLetterToUpperCase("shivani", "i"));
 //make a seperate function to display to the inner HTML
 //this function will turn lowercase letters to "_"
 
-let wordToChnageVariable: string = "";
+let wordToChangeVariable: string = "";
 let wrongLetterClicked: number = 0;
 let highscoreValue: number = 0;
 let highestHighscore: number = 0;
@@ -154,10 +154,10 @@ startButton.addEventListener("click", () => {
     addClues.style.fontSize = "2.1vh"
     hangman.innerHTML = hangmanArray[0]; //this will get the empty hangman
     wrongLetterClicked = 0; //by clicking where reasigning wrong letter being clicked if its chnaged elsewhere
-    wordToChnageVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
+    wordToChangeVariable = getARandomStringFromArray(taylorArray); //get a random word from taylor array
     display.style.fontSize = "4.5vh";
     display.innerHTML =
-        chnageLowerCaseLettersToUnderscore(wordToChnageVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
+        changeLowerCaseLettersToUnderscore(wordToChangeVariable); //the taylor array is all lowercase, the function turns all lowercase to underscore
     addClues.innerHTML = "Instructions";
     addCLuesInformation.innerHTML = "";
 
@@ -178,18 +178,18 @@ letters.forEach((keyboardLetter) => {
     keyboardLetter.addEventListener("click", () => {
         if (youveWonOrLost === true) {
             display.innerHTML = "Click Restart to play again";
-            wordToChnageVariable = "";
+            wordToChangeVariable = "";
             hangman.innerHTML = getARandomStringFromArray(restartGif);
         }
 
         // if the letter is in the word
-        else if (wordToChnageVariable.includes(keyboardLetter.value)) {
-            wordToChnageVariable = changeOneLetterToUpperCase(
-                wordToChnageVariable,
+        else if (wordToChangeVariable.includes(keyboardLetter.value)) {
+            wordToChangeVariable = changeOneLetterToUpperCase(
+                wordToChangeVariable,
                 keyboardLetter.value
             );
             display.innerHTML =
-                chnageLowerCaseLettersToUnderscore(wordToChnageVariable);
+                changeLowerCaseLettersToUnderscore(wordToChangeVariable);
             // keyboardLetter.style.backgroundColor = "violet"; //cant use my own colours
             // keyboardLetter.style.color = "blue";
             keyboardStyling.remove("isUnclicked");
@@ -197,13 +197,13 @@ letters.forEach((keyboardLetter) => {
 
             //WINNING
             //below is a function which checks if string is all uppercase
-            // if so (by cheCking if isUpperCase(wordToChnageVariable) is truthy then it means youve won )
+            // if so (by cheCking if isUpperCase(wordToChangeVariable) is truthy then it means youve won )
             const isUpperCase = (str: string) => str === str.toUpperCase();
-            if (isUpperCase(wordToChnageVariable)) {
+            if (isUpperCase(wordToChangeVariable)) {
                 display.style.fontSize = "2vh";
                 display.innerHTML =
                     getARandomStringFromArray(winningPhrases) +
-                    wordToChnageVariable;
+                    wordToChangeVariable;
                 hangman.innerHTML = getARandomStringFromArray(winningGifsArray);
                 startButton.innerHTML = "Restart";
                 highscoreValue = highscoreValue + 1;
@@ -213,7 +213,7 @@ letters.forEach((keyboardLetter) => {
             }
 
             //if the user hasnt selected a word the same empty hangman will keep appearing
-        } else if (wordToChnageVariable.length < 1) {
+        } else if (wordToChangeVariable.length < 1) {
             hangman.innerHTML = hangmanArray[0];
 
             // else if the wrong letter is clicked
@@ -236,7 +236,7 @@ letters.forEach((keyboardLetter) => {
                 //To find the right clue we need the right index of the taylor word
 
                 let indexOfWord: number = taylorArray.indexOf(
-                    wordToChnageVariable.toLowerCase()
+                    wordToChangeVariable.toLowerCase()
                 );
 
                 addCLuesInformation.innerHTML =
@@ -262,7 +262,7 @@ letters.forEach((keyboardLetter) => {
                 display.style.fontSize = "2vh";
                 display.innerHTML =
                     getARandomStringFromArray(loosingPhrases) +
-                    wordToChnageVariable.toUpperCase();
+                    wordToChangeVariable.toUpperCase();
                 youveWonOrLost = true;
             }
         }
@@ -272,7 +272,7 @@ letters.forEach((keyboardLetter) => {
 //if the wordtoChange includes the letter it should let me know
 //nothing in display should chnage here
 
-//turn wordToChnageVariable into an array of letters
+//turn wordToChangeVariable into an array of letters
 //map over it
 //if the arrayOfLetters is equal to letter.value leave it as a letter
 //else turn it into an undersore
