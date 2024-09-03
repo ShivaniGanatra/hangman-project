@@ -198,6 +198,7 @@
 }
 
 .heading {
+  background-color: blue;
   font-family: "Parisienne", cursive;
   display: flex;
   align-items: center;

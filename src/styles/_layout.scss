@@ -138,6 +138,7 @@
 }
 
 .heading {
+    background-color: blue;
     font-family: "Parisienne", cursive;
     @include flex-center (row);
     -webkit-text-fill-color: $nonary-color;
