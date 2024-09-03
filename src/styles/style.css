@@ -3,12 +3,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   margin: 5px 0px;
-  width: 98%;
+  width: 93%;
   height: 45%;
 }
 .keyboard__letter {
   font-family: "Parisienne", cursive;
-  width: 98/6%;
+  width: 93/6%;
   height: 100%;
   border-radius: 10px;
   transition: 0.3s ease;
@@ -198,7 +198,6 @@
 }
 
 .heading {
-  background-color: blue;
   font-family: "Parisienne", cursive;
   display: flex;
   align-items: center;
