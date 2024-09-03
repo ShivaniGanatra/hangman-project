@@ -12,9 +12,8 @@
     
 
     &__letter {
+        box-sizing: border-box;
         font-family: "Parisienne", cursive;
-        width: 100%;
-        height: 100%;
         border-radius: 10px;
         transition: 0.3s ease;
         @include keyboard-text(4vh);
