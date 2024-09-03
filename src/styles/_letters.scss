@@ -9,12 +9,9 @@
     width: 93%;
     height: 45%;
 
-
-
     &__letter {
         font-family: "Parisienne", cursive;
-        width: 15.5%;
-        height: 100%;
+
         border-radius: 10px;
         transition: 0.3s ease;
         @include keyboard-text(4vh);
