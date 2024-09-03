@@ -64,7 +64,7 @@
 @media screen and (min-width: 1440px) {
   .keyboard {
     height: 100%;
-    width: 650px;
+    width: 550px;
   }
 }
 .background {
@@ -324,14 +324,14 @@
   }
   .hangman {
     height: 100%;
-    width: 850px;
+    width: 750px;
     margin: 0px 15px;
   }
   .hangman__image {
     height: 600px;
   }
   .display {
-    width: 1600px;
+    width: 1300px;
     height: 90px;
   }
   .heading__title {
