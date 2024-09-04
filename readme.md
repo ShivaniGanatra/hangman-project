@@ -13,6 +13,13 @@ https://imgur.com/a/2IvIvYV
 
 https://i.ibb.co/M1S8WPd/hangman-desktop-1.jpg
 
+
+https://ibb.co/TbH80Tr
+https://ibb.co/cCdb6J2
+https://ibb.co/thxG2PR
+https://ibb.co/4VQr0SP
+https://ibb.co/4srDdXw
+
 my new to dos
 make urls for taylor hangman images instead of sourcing internally
 alter tablet keyboard 

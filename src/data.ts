@@ -35,11 +35,11 @@ export const taylorClues: string[] = [
 export const hangmanArray: string[] = [
     `<img class="hangman__image" src="https://i.ibb.co/M1S8WPd/hangman-desktop-1.jpg" alt="plain hangman">`,
     `<img class="hangman__image" src="https://i.ibb.co/rtLWqPq/hangman-desktop-2.jpg" alt="hangman with taylor head">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-3.jpg" alt="hangman with taylor head and body">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-4.jpg" alt="hangman with taylor head and body and one leg">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-5.jpg" alt="hangman with taylor head and body and legs">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-6.jpg" alt="hangman with taylor head and body and legs and one arm">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-7.jpg" alt="hangman with taylor head and body and legs and arms">`
+    `<img class="hangman__image" src="https://i.ibb.co/X3zs54V/hangman-desktop-3.jpg" alt="hangman with taylor head and body">`,
+    `<img class="hangman__image" src="https://i.ibb.co/CJGX2Yp/hangman-desktop-4.jpg" alt="hangman with taylor head and body and one leg">`,
+    `<img class="hangman__image" src="https://i.ibb.co/Db8JMgd/hangman-desktop-5.jpg" alt="hangman with taylor head and body and legs">`,
+    `<img class="hangman__image" src="https://i.ibb.co/FDPTdYg/hangman-desktop-6.jpg" alt="hangman with taylor head and body and legs and one arm">`,
+    `<img class="hangman__image" src="https://i.ibb.co/QCG8P9Y/hangman-desktop-7.jpg" alt="hangman with taylor head and body and legs and arms">`
 ];
 
 export const loosingGifsArray:string[] = [
