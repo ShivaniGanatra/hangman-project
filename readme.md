@@ -2,7 +2,18 @@
 how you are planning on building it
 a list of features the game will include, in order of importance -->
 
-change
+IMPORTANT
+After deploying there has been some issues with styling 
+I have found a way to resolve these issues using this video https://youtu.be/4gnxf9LFpC0?si=HqKmvyXIxdWkhT4O
+these issues were only apparent after deploying 
+in the local host it was fine 
+
+
+my new to dos
+make urls for taylor hangman images instead of sourcing internally
+alter tablet keyboard 
+alter mobile spacing
+alter desktop spacing 
 
 
 {INTRODUCTION}
@@ -194,5 +205,4 @@ need to know sort out what wil happen if letter is included
 
 and if letter isnt included
 
-After deployment there was as issue 
 
