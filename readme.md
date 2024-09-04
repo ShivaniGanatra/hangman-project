@@ -193,3 +193,6 @@ makege git a heart image and then do display none
 need to know sort out what wil happen if letter is included 
 
 and if letter isnt included
+
+After deployment there was as issue 
+
