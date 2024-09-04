@@ -33,8 +33,8 @@ export const taylorClues: string[] = [
 //The image strings below could have been kept directly in main.ts however i preffered to keep it in here 
 //because I felt it looked neater.
 export const hangmanArray: string[] = [
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-1.jpg" alt="plain hangman">`,
-    `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-2.jpg" alt="hangman with taylor head">`,
+    `<img class="hangman__image" src="https://i.ibb.co/M1S8WPd/hangman-desktop-1.jpg" alt="plain hangman">`,
+    `<img class="hangman__image" src="https://i.ibb.co/rtLWqPq/hangman-desktop-2.jpg" alt="hangman with taylor head">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-3.jpg" alt="hangman with taylor head and body">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-4.jpg" alt="hangman with taylor head and body and one leg">`,
     `<img class="hangman__image" src="./src/images/desktop images/hangman desktop-5.jpg" alt="hangman with taylor head and body and legs">`,

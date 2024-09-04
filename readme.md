@@ -8,6 +8,10 @@ I have found a way to resolve these issues using this video https://youtu.be/4gn
 these issues were only apparent after deploying 
 in the local host it was fine 
 
+https://imgur.com/a/2IvIvYV
+
+
+https://i.ibb.co/M1S8WPd/hangman-desktop-1.jpg
 
 my new to dos
 make urls for taylor hangman images instead of sourcing internally
