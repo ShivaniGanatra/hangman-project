@@ -48,26 +48,51 @@
   border: 2px solid rgb(255, 197, 239);
 }
 
+@media screen and (min-width: 768px) {
+  .keyboard {
+    height: 215px;
+    justify-content: space-between;
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-template-rows: 43px 43px 43px 43px 43px;
+  }
+  .keyboard__letter {
+    height: 43px;
+  }
+}
 @media screen and (min-width: 1024px) {
   .keyboard {
     border: violet 5px solid;
     box-shadow: 5px 5px 5px rgb(255, 197, 239);
     border-radius: 5px;
     grid-area: keyboard;
-    height: 375px;
+    height: 300px;
     width: 350px;
     margin: 0px 15px;
     background-color: rgb(180, 139, 247);
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-template-rows: 58px 58px 58px 58px 58px;
   }
   .keyboard__letter {
-    height: 375/6px;
-    width: 350/6px;
+    height: 62.5px;
+    width: 58px;
   }
 }
 @media screen and (min-width: 1440px) {
   .keyboard {
-    height: 100%;
-    width: 550px;
+    border: violet 5px solid;
+    box-shadow: 5px 5px 5px rgb(255, 197, 239);
+    border-radius: 5px;
+    grid-area: keyboard;
+    height: 600px;
+    width: 600px;
+    margin: 0px 15px;
+    background-color: rgb(180, 139, 247);
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-template-rows: 120px 120px 120px 120px 120px 120px;
+  }
+  .keyboard__letter {
+    height: 120px;
+    width: 100px;
   }
 }
 .background {
@@ -96,7 +121,7 @@
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 85%;
+  height: 75%;
 }
 
 .instructions {
@@ -280,6 +305,9 @@
   }
   .display {
     height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .instructions__points {
     padding: 120px 20px 20px 10px;
@@ -301,13 +329,13 @@
     font-size: 7vh;
   }
   .hangman {
-    height: 375px;
+    height: 300px;
     width: 550px;
     margin: 0px;
     grid-area: hangman;
   }
   .hangman__image {
-    height: 375px;
+    height: 300px;
   }
   .hangman__GIF {
     max-height: 375px;
@@ -316,7 +344,7 @@
        object-fit: contain;
   }
   .display {
-    width: 100%;
+    width: 900px;
     height: 70px;
     grid-area: display;
   }
@@ -326,16 +354,18 @@
     width: 100%;
   }
   .hangman {
-    height: 100%;
-    width: 750px;
+    height: 600px;
+    width: 900px;
     margin: 0px 15px;
   }
   .hangman__image {
     height: 600px;
   }
   .display {
-    width: 1300px;
+    width: 1550px;
     height: 90px;
+    justify-self: center;
+    align-self: center;
   }
   .heading__title {
     font-size: 5.5vh;
